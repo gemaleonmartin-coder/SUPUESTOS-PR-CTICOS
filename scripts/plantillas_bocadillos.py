@@ -28,9 +28,9 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SALIDA = os.path.join(RAIZ, 'libreta-magica', 'Plantillas_con_bocadillos_v22.docx')
 
 # Colores de la libreta de Rafa
-AZUL, VERDE_AZ, CREMA, NARANJA_BORDE, GRIS_TXT = '1F3864', '1F7F8C', 'FDF5E6', 'E39B2E', '595959'
-BOC_FONDO, BOC_BORDE = 'EAF5F6', '1F7F8C'
-FIJO_FONDO, FIJO_BORDE = 'FFF1D6', 'E39B2E'
+AZUL, VERDE_AZ, CREMA, NARANJA_BORDE, GRIS_TXT = '1F3A5F', '2A7F8E', 'FDF6E8', 'C98A1B', '595959'
+BOC_FONDO, BOC_BORDE = 'E8F3F5', '2A7F8E'
+FIJO_FONDO, FIJO_BORDE = 'FBEBCB', 'C98A1B'
 NARANJA = 'FFC000'
 FUENTE = 'Calibri'
 EMU_CM = 360000
@@ -128,13 +128,18 @@ def bocadillo(n_id, num, titulo, tipo, lineas):
 
 ORDEN_TCPR = ['cnfStyle', 'tcW', 'gridSpan', 'hMerge', 'vMerge', 'tcBorders', 'shd', 'noWrap', 'tcMar',
               'textDirection', 'tcFitText', 'vAlign', 'hideMark']
+ORDEN_PPR = ['pStyle', 'keepNext', 'keepLines', 'pageBreakBefore', 'framePr', 'widowControl', 'numPr',
+             'suppressLineNumbers', 'pBdr', 'shd', 'tabs', 'suppressAutoHyphens', 'kinsoku', 'wordWrap',
+             'overflowPunct', 'topLinePunct', 'autoSpaceDE', 'autoSpaceDN', 'bidi', 'adjustRightInd', 'snapToGrid',
+             'spacing', 'ind', 'contextualSpacing', 'mirrorIndents', 'suppressOverlap', 'jc', 'textDirection',
+             'textAlignment', 'textboxTightWrap', 'outlineLvl', 'divId', 'cnfStyle', 'rPr', 'sectPr', 'pPrChange']
 ORDEN_TBLPR = ['tblStyle', 'tblpPr', 'tblOverlap', 'bidiVisual', 'tblStyleRowBandSize', 'tblStyleColBandSize', 'tblW',
                'jc', 'tblCellSpacing', 'tblInd', 'tblBorders', 'shd', 'tblLayout', 'tblCellMar', 'tblLook']
 
 
 def ordena_esquema(body):
     """Pone los hijos de w:tcPr y w:tblPr en el orden del esquema (Word es estricto; LibreOffice, no)."""
-    for etiqueta, orden in (('w:tcPr', ORDEN_TCPR), ('w:tblPr', ORDEN_TBLPR)):
+    for etiqueta, orden in (('w:tcPr', ORDEN_TCPR), ('w:tblPr', ORDEN_TBLPR), ('w:pPr', ORDEN_PPR)):
         for el in body.iter(qn(etiqueta)):
             hijos = list(el)
             hijos.sort(key=lambda h: orden.index(h.tag.split('}')[1]) if h.tag.split('}')[1] in orden else 99)
@@ -332,6 +337,48 @@ class Constructor:
     def pendiente(self, texto):
         self.p(_run(texto, tam=10, fondo=NARANJA, color='262626'), antes=120, despues=120)
 
+    def tabla(self, cabecera, filas, anchos, tam=8.5, negrita_col0=True):
+        t = self.d.add_table(rows=len(filas) + 1, cols=len(cabecera))
+        t.autofit = False
+        tbl = t._tbl
+        for i, w in enumerate(anchos):
+            tbl.tblGrid.gridCol_lst[i].w = Cm(w)
+        for r_i, row in enumerate(t.rows):
+            row._tr.get_or_add_trPr().append(OxmlElement('w:cantSplit'))
+            if r_i == 0:
+                row._tr.get_or_add_trPr().append(OxmlElement('w:tblHeader'))
+            for c_i, celda in enumerate(row.cells):
+                celda.width = Cm(anchos[c_i])
+                _limpia_celda(celda._tc)
+                tcpr = celda._tc.get_or_add_tcPr()
+                b = OxmlElement('w:tcBorders')
+                for lado in ('top', 'left', 'bottom', 'right'):
+                    e = OxmlElement(f'w:{lado}'); e.set(qn('w:val'), 'single'); e.set(qn('w:sz'), '4')
+                    e.set(qn('w:color'), 'C9D6DF'); b.append(e)
+                tcpr.append(b)
+                _margenes(celda._tc, 80, 80, 30, 30)
+                if r_i == 0:
+                    _fondo(celda._tc, AZUL)
+                    celda._tc.append(_parrafo_xml(_run(cabecera[c_i], negrita=True, color='FFFFFF', tam=tam),
+                                                  despues=0))
+                    continue
+                if r_i % 2 == 0:
+                    _fondo(celda._tc, 'F4F8FA')
+                negrita = negrita_col0 and c_i == 0
+                celda._tc.append(_parrafo_xml(_run(filas[r_i - 1][c_i], tam=tam, negrita=negrita,
+                                                   color=AZUL if negrita else '222B33'), despues=0))
+        self._anade(tbl)
+
+    def elementos(self):
+        self.p(_run('Tabla de elementos curriculares (recortada)', negrita=True, color=AZUL, tam=12), antes=240,
+               despues=60)
+        self.p(_run('De la tabla de Gem: una competencia específica por fila, con su criterio de quinto, un saber '
+                    'vinculado a ese criterio y dos descriptores. Códigos y vínculos comprobados en el BOJA; los '
+                    'textos son resúmenes. La primera área se desarrolla entera; de la segunda, solo la competencia.',
+                    tam=9.5, color=GRIS_TXT, cursiva=True), despues=100, alin='both')
+        self.tabla(['Área', 'Competencia específica', 'Criterio de 5.º', 'Un saber básico', 'Descriptores'],
+                   [list(f) for f in T.ELEMENTOS], [1.2, 5.0, 4.6, 4.6, 2.0])
+
     def orientaciones(self):
         self.p(_run('Orientaciones metodológicas de cada área', negrita=True, color=AZUL, tam=12), antes=240,
                despues=60)
@@ -391,8 +438,7 @@ def main():
     for clave in ('7.1', '7.2', '7.3', '7.5', '7.6', '7.7', '7.8', '7.9'):
         c.plantilla(clave)
         if clave == '7.7':
-            c.pendiente('PENDIENTE: aquí irá la tabla de elementos curriculares de Gem, recortada (competencia '
-                        'específica, criterio de quinto, saber y descriptores). Falta que Gem la suba al repositorio.')
+            c.elementos()
         if clave == '7.8':
             c.orientaciones()
     print(c.guarda())

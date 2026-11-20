@@ -255,8 +255,8 @@ BOCADILLOS = {
              'resolución de retos y problemas en Educación Infantil, Educación Primaria y Educación Secundaria '
              'Obligatoria: itinerario de problemas de dificultad creciente y pasos comunes.',
              'Biblioteca. Instrucciones de 10 de septiembre de 2025, sobre la organización y funcionamiento de las '
-             'bibliotecas escolares: biblioteca como recurso para la mediación lectora, la alfabetización mediática e '
-             'informacional y la inclusión.']),
+             'bibliotecas escolares (título completo, por comprobar): biblioteca como recurso para la mediación lectora, '
+             'la alfabetización mediática e informacional y la inclusión.']),
     },
     '7.5': {
         1: ('Origen', 'IDEAS', ['Solo se cita la línea o el objetivo del contexto; no se vuelve a explicar.']),
@@ -380,3 +380,55 @@ ORIENTACIONES = {
         ('Transformar la sociedad', False),
     ],
 }
+
+# Tabla recortada de elementos curriculares (de la tabla de Gem, ELEMENTOS_CURRICULARES_DEFINITIVOS, segunda tabla):
+# una competencia específica por fila con su criterio de quinto, un saber vinculado a ese criterio y dos descriptores.
+# Comprobado con normativa/criterios_5_boja.json y saberes_3ciclo_boja.json (BOJA n.º 104, de 2 de junio de 2023) y con
+# la conexión de cada competencia con los descriptores del anexo II de la Orden. Resúmenes propios, no literales.
+ELEMENTOS = [
+    ('CMN', '1. Utilizar recursos digitales de forma segura para buscar información y crear contenidos.',
+     '1.1.a Usar recursos digitales con seguridad para buscar, comunicarse y crear.',
+     'CMN.3.B.1.2 Búsquedas de información seguras y eficientes en internet.', 'CD1, CD2'),
+    ('CMN', '2. Plantear y responder cuestiones científicas con técnicas y modelos científicos.',
+     '2.2.a Buscar y contrastar información de fuentes seguras y fiables.',
+     'CMN.3.A.1.1 Fases de la investigación científica.', 'CCL3, STEM2'),
+    ('CMN', '4. Conocer el propio cuerpo y desarrollar hábitos saludables para el bienestar.',
+     '4.2.a Valorar hábitos de vida saludables desde las funciones vitales.',
+     'CMN.3.A.2.3 Alimentación saludable y sostenible: menús equilibrados.', 'STEM5, CPSAA2'),
+    ('CMN', '6. Identificar causas y consecuencias de la intervención humana para actuar de forma sostenible.',
+     '6.2.a Buscar y evaluar propuestas ante problemas ecosociales.',
+     'CMN.3.C.4.3 El desarrollo sostenible y la explotación de los recursos.', 'STEM5, CC4'),
+    ('CMN', '7. Interpretar cambios y continuidades sociales y culturales para valorar la historia.',
+     '7.1.a Analizar causalidad, simultaneidad y sucesión en las Edades Media y Moderna.',
+     'CMN.3.C.2.5 El patrimonio natural y cultural como bien y recurso.', 'CC1, CCEC1'),
+    ('LCL', '3. Producir textos orales y multimodales y participar en interacciones orales.',
+     '3.1.a Producir textos orales y multimodales coherentes y fluidos.',
+     'LCL.3.B.3.3 Producción oral: prosodia y comunicación no verbal.', 'CCL1, CCL5'),
+    ('LCL', '5. Producir textos escritos y multimodales planificando, redactando y revisando.',
+     '5.1.a Producir textos escritos coherentes con las normas ortográficas básicas.',
+     'LCL.3.B.3.5 Producción escrita: ortografía, coherencia y cohesión.', 'CCL1, CPSAA5'),
+    ('LCL', '7. Leer de manera autónoma obras diversas para construir la identidad lectora.',
+     '7.1.a Leer de forma autónoma textos ajustados a sus gustos, como fuente de placer.',
+     'LCL.3.B.3.4 Comprensión lectora antes, durante y después de la lectura.', 'CCL4, CCEC2'),
+    ('MAT', '1. Interpretar situaciones cotidianas representándolas matemáticamente.',
+     '1.1.a Comprender problemas cotidianos reformulando la pregunta.',
+     'MAT.3.A.6.1 Problemas de consumo responsable y de dinero.', 'STEM1, STEM2'),
+    ('MAT', '2. Resolver situaciones problematizadas con distintas estrategias y comprobar las soluciones.',
+     '2.2.a Obtener soluciones seleccionando estrategias, tanteando y descomponiendo.',
+     'MAT.3.A.3.7 Tantear soluciones antes de operar.', 'STEM1, CPSAA5'),
+    ('MAT', '3. Explorar, formular y comprobar conjeturas y plantear problemas.',
+     '3.2.a Plantear nuevos problemas sobre situaciones cotidianas.',
+     'MAT.3.D.2.2 Invención de problemas de la vida cotidiana.', 'CCL1, STEM2'),
+    ('MAT', '4. Utilizar el pensamiento computacional para modelizar situaciones cotidianas.',
+     '4.1.a Modelizar situaciones cotidianas con principios del pensamiento computacional.',
+     'MAT.3.D.4.1 Interpretación y creación de algoritmos sencillos.', 'STEM1, CD5'),
+    ('MAT', '5. Conectar las matemáticas con otras áreas y con la vida cotidiana.',
+     '5.2.a Usar las matemáticas en otras áreas y en problemas del entorno.',
+     'MAT.3.C.4.4 Las ideas geométricas en el arte, las ciencias y la vida cotidiana.', 'STEM3, CCEC1'),
+    ('MAT', '6. Comunicar y representar ideas matemáticas con distintos lenguajes.',
+     '6.2.a Comunicar en distintos formatos conjeturas y procesos.',
+     'MAT.3.E.1.3 Gráficos estadísticos sencillos.', 'CCL1, STEM4'),
+    ('EAR', '3. Expresar ideas y emociones con el sonido, la imagen, el cuerpo y los medios digitales.',
+     '3.1.a Producir obras propias básicas con confianza.',
+     'EAR.3.B.1 Fases del proceso creativo.', 'CPSAA1, CCEC3'),
+]
