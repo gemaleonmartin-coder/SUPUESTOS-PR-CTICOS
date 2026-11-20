@@ -42,8 +42,6 @@ _cambia('7.1', 'Para dar respuesta', '[4|área eje]', '[área eje]')
 f = _fila('7.1', '{5|A tal fin')
 f['texto'] = re.sub(r'^\{5\|(.*)\}$', r'\1', f['texto'])
 _cambia('7.2', 'Alumnado.', '[perfil: necesidad y fortaleza]', '[91|perfil: necesidad y fortaleza]')
-_cambia('7.1', '[1|Pregunta retórica', '[1|Pregunta retórica o dato sobre el tema, con las palabras clave del enunciado]',
-        '[1|Dato o cita fiable sobre el tema, con las palabras clave del enunciado]')
 _cambia('7.3', '{2|Desde el punto', '{2|Desde el punto de vista normativo,}', 'Desde el punto de vista normativo,')
 _cambia('7.5', 'La intervención se articula', '[1|la línea general', '[la línea general')
 _cambia('7.5', 'La intervención se articula', '[necesidad]', '[93|necesidad]')
@@ -75,7 +73,8 @@ D101 = 'Decreto 101/2023, artículo 6'
 OPCIONES = {
     # ------------------------------------------------------------------------------------------------ 7.1
     '7.1': {
-        1: {'titulo': 'Dato o cita fiable sobre el tema (copiados tal cual de la libreta mágica y del manual)', 'ops': [
+        1: {'titulo': 'Dato, cita fiable o pregunta retórica sobre el tema (copiados tal cual de la libreta mágica y '
+                      'del manual; la pregunta, en último lugar)', 'ops': [
             ('1', '★ PIRLS 2021 (4.º de Primaria): España, 521 puntos en comprensión lectora, por debajo de la Unión '
                   'Europea (528) y del promedio de la OCDE (533), y por debajo de su resultado de 2016 (528); Andalucía, '
                   '523 § Gancho de T2 lectura. Es el dato más pertinente para Primaria (libreta mágica, Parte II, 1.2).'),
@@ -102,6 +101,11 @@ OPCIONES = {
                 '§ T3, solo si se domina; baja idoneidad académica.',
                 'Ejemplo de uso: «"El lenguaje es el vestido del pensamiento", escribió Samuel Johnson. En la misma '
                 'línea, el dominio de la comunicación oral y escrita condiciona el resto de los aprendizajes…».']),
+            ('C', 'Pregunta retórica, solo como última opción (libreta mágica, Parte II, 1.1, copiada tal cual; la libreta '
+                  'la acompaña de «LOE, 16.2» en la Parte III, «Qué poner en cada apartado»):', [
+                '«¿Es posible aprender ciencias, historia o matemáticas sin comprender lo que se lee?» § Lectura (T2a).',
+                '«¿Cómo esperar que el alumnado resuelva problemas si no comprende sus enunciados?» § Resolución de '
+                'problemas (T2b).']),
         ]},
         2: {'ops': [('1', 'Se concretará con los temas: un autor del tema, de 2020 en adelante, con un solo apellido.')]},
         3: {'titulo': 'Objetivo de la etapa relacionado (artículo 17 de la LOE, literal)', 'ops': [

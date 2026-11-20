@@ -5,7 +5,7 @@ Cambios pedidos por Gem sobre la primera versión: sin saltos de página entre a
 y sin nada debajo; muchos más ejemplos y comodines (con ◆ los diferenciadores); el texto de la norma, literal, con su
 etiqueta; y la tabla de elementos curriculares con los colores de las áreas de la programación.
 
-Uso:  python3 scripts/plantillas_por_importancia_2.py   →   libreta-magica/Plantillas_por_importancia_v22_4.docx
+Uso:  python3 scripts/plantillas_por_importancia_2.py   →   libreta-magica/Plantillas_por_importancia_v22_5.docx
 Textos: opciones_plantillas_2.py (plantillas y opciones) y textos_libreta_v22.py (elementos y orientaciones).
 """
 import os
@@ -21,7 +21,7 @@ import opciones_plantillas_2 as O  # noqa: E402
 import plantillas_bocadillos as PB  # noqa: E402
 import textos_libreta_v22 as T  # noqa: E402
 
-SALIDA = os.path.join(PB.RAIZ, 'libreta-magica', 'Plantillas_por_importancia_v22_4.docx')   # v22_3: la anterior
+SALIDA = os.path.join(PB.RAIZ, 'libreta-magica', 'Plantillas_por_importancia_v22_5.docx')   # v22_4: la anterior
 ANCHO = 17.4
 GRIS_C = '8C8C8C'
 INSIGNIA = {'1': (' 1.ª OPCIÓN ', PB.VERDE_AZ), 'C': (' COMODÍN {n} ', GRIS_C),
@@ -220,7 +220,7 @@ class Plantillas(PB.Constructor):
                      + pp('', antes=500) + caja
                      + pp(r('Educación Primaria · Andalucía · Convocatoria de 2027', tam=10.5, color=self.PETROLEO,
                             b=True), antes=700)
-                     + pp(r('Versión 2.2, cuarta edición de las plantillas · 20 de noviembre de 2026 · Acompaña a la '
+                     + pp(r('Versión 2.2, quinta edición de las plantillas · 20 de noviembre de 2026 · Acompaña a la '
                             'libreta mágica 2.2. Material de estudio personal.', tam=8.5, color='5B6770', i=True),
                           antes=60))
         texto_banda = pp(r('SUPUESTOS PRÁCTICOS  ·  EDUCACIÓN PRIMARIA  ·  ANDALUCÍA 2027', tam=9, color=self.CREMA_BANDA,
@@ -383,6 +383,13 @@ def construye(paginas=None):
         if clave == '7.8':
             c.orientaciones()
     PB.ordena_esquema(c.d.element.body)
+    # sin párrafos vacíos al final, para que no salga una página en blanco detrás de la última
+    cuerpo = c.d.element.body
+    hijos = [h for h in cuerpo if h.tag != qn('w:sectPr')]
+    while (len(hijos) > 1 and hijos[-1].tag == qn('w:p') and hijos[-2].tag == qn('w:p')
+           and not ''.join(t.text or '' for t in hijos[-1].iter(qn('w:t')))
+           and hijos[-1].find('.//' + qn('w:drawing')) is None and hijos[-1].find('.//' + qn('w:sectPr')) is None):
+        cuerpo.remove(hijos.pop())
     zoom = c.d.settings.element.find(qn('w:zoom'))
     if zoom is not None and zoom.get(qn('w:percent')) is None:
         zoom.set(qn('w:percent'), '100')
