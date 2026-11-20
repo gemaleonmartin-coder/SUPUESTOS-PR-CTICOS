@@ -35,11 +35,11 @@ NARANJA = 'FFC000'
 FUENTE = 'Calibri'
 EMU_CM = 360000
 
-ANCHO_LADO, ANCHO_CENTRO = 8.3, 10.1       # cm (A4 apaisado con márgenes de 1,5 cm: 26,7 cm útiles)
-BOC_ANCHO, COLA = 7.5, 0.35                # cm
+ANCHO_LADO, ANCHO_CENTRO = 8.6, 9.5       # cm (A4 apaisado con márgenes de 1,5 cm: 26,7 cm útiles)
+BOC_ANCHO, COLA = 7.9, 0.35                # cm
 UTIL = 26.7
 INS_LR, INS_TB = 0.18, 0.12                # cm
-TAM_BOC = 8.5                              # pt
+TAM_BOC = 8                              # pt
 NS = ('xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" '
       'xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" '
       'xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" '
@@ -299,65 +299,82 @@ class Constructor:
         return el
 
     def plantilla(self, clave):
-        """Plantilla entera en la columna central y sus bocadillos repartidos a izquierda y derecha, en orden y
-        equilibrando el alto de los dos lados."""
+        """Una fila por párrafo de la plantilla: el párrafo en el centro y sus bocadillos justo a sus lados, a
+        izquierda y derecha, equilibrados dentro de la fila. Si un párrafo solo tiene un bocadillo y es mucho más alto
+        que el párrafo, el bocadillo se parte en dos mitades, una a cada lado."""
         datos = T.PLANTILLAS[clave]
         boc = T.BOCADILLOS.get(clave, {})
         self.titulo(datos['titulo'])
+        filas = datos['filas']
         anchos = (ANCHO_LADO, ANCHO_CENTRO, ANCHO_LADO)
-        t = self.d.add_table(rows=1, cols=3)
+        t = self.d.add_table(rows=len(filas), cols=3)
         t.alignment = WD_TABLE_ALIGNMENT.LEFT
         t.autofit = False
         tbl = t._tbl
+        tblw = tbl.tblPr.find(qn('w:tblW'))
+        tblw.set(qn('w:type'), 'dxa'); tblw.set(qn('w:w'), str(round(sum(anchos) / 2.54 * 1440)))
         for i, w in enumerate(anchos):
             tbl.tblGrid.gridCol_lst[i].w = Cm(w)
-        izq, cen, der = t.rows[0].cells
-        for c, w in zip(t.rows[0].cells, anchos):
-            c.width = Cm(w)
-            _limpia_celda(c._tc)
-        _bordes_celda(izq._tc)
-        _bordes_celda(der._tc)
-        _bordes_celda(cen._tc, izq=NARANJA_BORDE)
-        _fondo(cen._tc, CREMA)
-        _margenes(cen._tc, 220, 220, 90, 80)
-        _margenes(izq._tc, 0, 120, 60, 0)
-        _margenes(der._tc, 120, 0, 60, 0)
-        cen._tc.append(_parrafo_xml(_run('Plantilla de redacción', versalitas=True, negrita=True, color=NARANJA_BORDE,
-                                         tam=8.5), despues=60))
-        nums = []
-        for fila in datos['filas']:
+        for r_i, (row, fila) in enumerate(zip(t.rows, filas)):
+            row._tr.get_or_add_trPr().append(OxmlElement('w:cantSplit'))   # cada párrafo con sus bocadillos, junto
+            izq, cen, der = row.cells
+            for c, w in zip(row.cells, anchos):
+                c.width = Cm(w)
+                _limpia_celda(c._tc)
             reubicar = fila.get('reubicar')
-            gris = ('<w:pBdr><w:left w:val="single" w:sz="18" w:space="6" w:color="BFBFBF"/></w:pBdr>'
-                    '<w:shd w:val="clear" w:color="auto" w:fill="EDEDED"/>') if reubicar else ''
+            _bordes_celda(izq._tc)
+            _bordes_celda(der._tc)
+            _bordes_celda(cen._tc, izq=('BFBFBF' if reubicar else NARANJA_BORDE))
+            _fondo(cen._tc, 'EDEDED' if reubicar else CREMA)
+            va = OxmlElement('w:vAlign'); va.set(qn('w:val'), 'center'); cen._tc.get_or_add_tcPr().append(va)
+            ultima = r_i == len(filas) - 1
+            _margenes(cen._tc, 220, 220, 90 if r_i == 0 else 20, 90 if ultima else 20)
+            _margenes(izq._tc, 0, 120, 40, 60)
+            _margenes(der._tc, 120, 0, 40, 60)
+            if r_i == 0:
+                cen._tc.append(_parrafo_xml(_run('Plantilla de redacción', versalitas=True, negrita=True,
+                                                 color=NARANJA_BORDE, tam=8.5), despues=60))
             if fila.get('etiqueta'):
                 color = '7F7F7F' if reubicar else AZUL
                 txt = ('⚠ ' + fila['etiqueta']) if reubicar else fila['etiqueta']
                 cen._tc.append(_parrafo_xml(_run(txt, negrita=True, versalitas=True, color=color, tam=8.5),
-                                            antes=120, despues=40, ind=gris or None))
-            cen._tc.append(_parrafo_xml(runs_plantilla(fila['texto'], tam=10.5), despues=100, alin='both',
-                                        ind=gris or None))
+                                            antes=100, despues=40))
+            cen._tc.append(_parrafo_xml(runs_plantilla(fila['texto'], tam=10.5), despues=100, alin='both'))
             if reubicar:
                 cen._tc.append(_parrafo_xml(_run(T.NOTA_REUBICAR, cursiva=True, color='7F7F7F', tam=9.5),
-                                            despues=60, alin='both', ind=gris))
-            nums += [int(m) for m in re.findall(r'[\[{](\d+)\|', fila['texto'])]
-        # reparto equilibrado: el más alto primero, al lado que lleva menos; después, cada lado en orden de número
-        alto = {'izq': 0.0, 'der': 0.0}
-        lados = {'izq': [], 'der': []}
-        for n in sorted(nums, key=lambda k: -alto_bocadillo(k, *boc[k])):
-            lado = 'izq' if alto['izq'] <= alto['der'] else 'der'
-            alto[lado] += alto_bocadillo(n, *boc[n]) + 0.2
-            lados[lado].append(n)
-        celdas = {'izq': izq, 'der': der}
-        for lado in ('izq', 'der'):
-            for n in sorted(lados[lado]):
-                titulo, tipo, lineas = boc[n]
-                self.n_id += 1
-                par = _parrafo_xml('', despues=0, alin='right' if lado == 'izq' else None)
-                par.append(parse_xml(bocadillo(self.n_id, n, titulo, tipo, lineas, lado)))
-                celdas[lado]._tc.append(par)
-        for lado in ('izq', 'der'):
-            if celdas[lado]._tc.find(qn('w:p')) is None:
-                celdas[lado]._tc.append(_parrafo_xml('', despues=0))
+                                            despues=60, alin='both'))
+            # bocadillos de este párrafo
+            nums = [int(m) for m in re.findall(r'[\[{](\d+)\|', fila['texto'])]
+            texto_plano = re.sub(r'[\[\]{}|\d]', '', fila['texto'])
+            alto_texto = _lineas(texto_plano, ANCHO_CENTRO - 0.8, 10.5) * 10.5 * 1.3 / 72 * 2.54 + 0.5
+            piezas = [(n,) + tuple(boc[n]) for n in nums]
+            if len(piezas) == 1:
+                n, titulo, tipo, lineas = piezas[0]
+                if len(lineas) >= 4 and alto_bocadillo(n, titulo, tipo, lineas) > 1.5 * alto_texto:
+                    mitad = (len(lineas) + 1) // 2
+                    piezas = [(n, titulo + ' (1/2)', tipo, lineas[:mitad]),
+                              (n, titulo + ' (2/2)', tipo, lineas[mitad:])]
+            lados = {'izq': [], 'der': []}
+            if len(piezas) == 2 and piezas[0][0] == piezas[1][0]:          # bocadillo partido
+                lados['izq'], lados['der'] = [piezas[0]], [piezas[1]]
+            else:
+                alto = {'izq': 0.0, 'der': 0.0}
+                for pz in sorted(piezas, key=lambda q: -alto_bocadillo(*q)):
+                    if abs(alto['izq'] - alto['der']) < 0.01:
+                        lado = 'izq' if self.uso['izq'] <= self.uso['der'] else 'der'
+                    else:
+                        lado = 'izq' if alto['izq'] < alto['der'] else 'der'
+                    alto[lado] += alto_bocadillo(*pz) + 0.2
+                    self.uso[lado] += alto_bocadillo(*pz)
+                    lados[lado].append(pz)
+            for lado, celda in (('izq', izq), ('der', der)):
+                for n, titulo, tipo, lineas in sorted(lados[lado], key=lambda q: (q[0], q[1])):
+                    self.n_id += 1
+                    par = _parrafo_xml('', despues=0, alin='right' if lado == 'izq' else None)
+                    par.append(parse_xml(bocadillo(self.n_id, n, titulo, tipo, lineas, lado)))
+                    celda._tc.append(par)
+                if not lados[lado]:
+                    celda._tc.append(_parrafo_xml('', despues=0))
         self._anade(tbl)
 
     def pendiente(self, texto):
@@ -396,8 +413,9 @@ class Constructor:
         self._anade(tbl)
 
     def elementos(self):
-        self.p(_run('Tabla de elementos curriculares (recortada)', negrita=True, color=AZUL, tam=12), antes=240,
-               despues=60)
+        el = self.p(_run('Tabla de elementos curriculares (recortada)', negrita=True, color=AZUL, tam=12), antes=0,
+                    despues=60)
+        el.find(qn('w:pPr')).insert(0, OxmlElement('w:pageBreakBefore'))
         self.p(_run('De la tabla de Gem: una competencia específica por fila, con su criterio de quinto, un saber '
                     'vinculado a ese criterio y dos descriptores. Códigos y vínculos comprobados en el BOJA; los '
                     'textos son resúmenes. La primera área se desarrolla entera; de la segunda, solo la competencia.',
