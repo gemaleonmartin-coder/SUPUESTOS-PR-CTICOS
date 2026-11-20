@@ -35,8 +35,9 @@ NARANJA = 'FFC000'
 FUENTE = 'Calibri'
 EMU_CM = 360000
 
-ANCHO_IZQ, ANCHO_DER = 10.6, 6.8          # cm (A4 con márgenes de 1,8 cm: 17,4 cm útiles)
-BOC_ANCHO, COLA = 6.3, 0.35                # cm
+ANCHO_LADO, ANCHO_CENTRO = 8.3, 10.1       # cm (A4 apaisado con márgenes de 1,5 cm: 26,7 cm útiles)
+BOC_ANCHO, COLA = 7.5, 0.35                # cm
+UTIL = 26.7
 INS_LR, INS_TB = 0.18, 0.12                # cm
 TAM_BOC = 8.5                              # pt
 NS = ('xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" '
@@ -87,18 +88,23 @@ def _run(texto, **kw):
     return f'<w:r>{_rpr(**kw)}<w:t xml:space="preserve">{escape(texto)}</w:t></w:r>'
 
 
-def bocadillo(n_id, num, titulo, tipo, lineas):
-    """Run con una forma de llamada (bocadillo) en línea, con la cola hacia la izquierda."""
-    fijo = tipo == 'FIJO'
+def alto_bocadillo(num, titulo, tipo, lineas):
+    """Alto (cm) que necesita un bocadillo para su texto."""
     ancho_txt = BOC_ANCHO - 2 * INS_LR
     alto_linea = TAM_BOC * 1.31 / 72 * 2.54                       # cm
     n_lin = _lineas(f'{num}  {titulo}  {tipo}', ancho_txt - 0.2, TAM_BOC, True)
     n_lin += sum(_lineas('• ' + l, ancho_txt - 0.45, TAM_BOC) for l in lineas)
     alto = 2 * INS_TB + n_lin * alto_linea + (len(lineas) + 1) * 1.5 / 72 * 2.54
-    alto = alto * 1.10 + 0.15
+    return alto * 1.14 + 0.2
+
+
+def bocadillo(n_id, num, titulo, tipo, lineas, lado='der'):
+    """Run con una forma de llamada (bocadillo) en línea; la cola apunta a la plantilla (al centro)."""
+    fijo = tipo == 'FIJO'
+    alto = alto_bocadillo(num, titulo, tipo, lineas)
     cx, cy = round(BOC_ANCHO * EMU_CM), round(alto * EMU_CM)
     cola = round(COLA * EMU_CM)
-    adj1 = round(-(0.5 + COLA / BOC_ANCHO) * 100000)
+    adj1 = round((0.5 + COLA / BOC_ANCHO) * 100000) * (1 if lado == 'izq' else -1)
     adj2 = round((min(0.32, alto / 2) / alto - 0.5) * 100000)
     fondo, borde = (FIJO_FONDO, FIJO_BORDE) if fijo else (BOC_FONDO, BOC_BORDE)
     sp = '<w:pPr><w:spacing w:before="0" w:after="30" w:line="240" w:lineRule="auto"/></w:pPr>'
@@ -111,7 +117,8 @@ def bocadillo(n_id, num, titulo, tipo, lineas):
         f'{_run(l, tam=TAM_BOC, color="262626")}</w:p>' for l in lineas)
     return (f'<w:r {NS}><mc:AlternateContent><mc:Choice Requires="wps"><w:drawing>'
             f'<wp:inline distT="0" distB="72000" distL="0" distR="0">'
-            f'<wp:extent cx="{cx}" cy="{cy}"/><wp:effectExtent l="{cola}" t="0" r="0" b="0"/>'
+            f'<wp:extent cx="{cx}" cy="{cy}"/><wp:effectExtent l="{0 if lado == "izq" else cola}" t="0" '
+            f'r="{cola if lado == "izq" else 0}" b="0"/>'
             f'<wp:docPr id="{n_id}" name="Bocadillo {n_id}"/><wp:cNvGraphicFramePr/>'
             f'<a:graphic><a:graphicData uri="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">'
             f'<wps:wsp><wps:cNvSpPr/><wps:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="{cx}" cy="{cy}"/></a:xfrm>'
@@ -214,14 +221,21 @@ def _limpia_celda(tc):
 
 
 class Constructor:
-    def __init__(self):
+    def __init__(self, apaisado=False):
         self.d = Document()
         self.n_id = 100
+        self.uso = {'izq': 0.0, 'der': 0.0}
         s = self.d.sections[0]
-        s.page_width, s.page_height = Cm(21), Cm(29.7)
-        s.orientation = WD_ORIENT.PORTRAIT
-        s.left_margin = s.right_margin = Cm(1.8)
-        s.top_margin, s.bottom_margin = Cm(2.0), Cm(1.8)
+        if apaisado:
+            s.orientation = WD_ORIENT.LANDSCAPE
+            s.page_width, s.page_height = Cm(29.7), Cm(21)
+            s.left_margin = s.right_margin = Cm(1.5)
+            s.top_margin, s.bottom_margin = Cm(1.6), Cm(1.4)
+        else:
+            s.page_width, s.page_height = Cm(21), Cm(29.7)
+            s.orientation = WD_ORIENT.PORTRAIT
+            s.left_margin = s.right_margin = Cm(1.8)
+            s.top_margin, s.bottom_margin = Cm(2.0), Cm(1.8)
         st = self.d.styles['Normal']
         st.font.name, st.font.size = FUENTE, Pt(10.5)
         st.element.rPr.rFonts.set(qn('w:eastAsia'), FUENTE)
@@ -261,15 +275,16 @@ class Constructor:
         self.p(_run('SUPUESTOS PRÁCTICOS · PARTE A', versalitas=True, color=NARANJA_BORDE, tam=9, negrita=True),
                antes=600, despues=120)
         self.p(_run('Plantillas con bocadillos', negrita=True, color=AZUL, tam=26), despues=60)
-        self.p(_run('Las plantillas de redacción de la Parte I de la libreta mágica (apartados 7.1 a 7.8), con '
-                    'ejemplos al lado de cada hueco', color=VERDE_AZ, tam=12), despues=240)
+        self.p(_run('Las plantillas de redacción de la Parte I de la libreta mágica (apartados 7.1 a 7.9), con el '
+                    'contenido de cada hueco a los lados, para estudiar los supuestos desde aquí', color=VERDE_AZ, tam=12), despues=240)
         self.p(_run('Cómo se lee', negrita=True, color=AZUL, tam=12), despues=60)
         for texto in (
-                'Cada plantilla va a la izquierda, en amarillo, igual que en la libreta. A la derecha, los bocadillos '
-                'del mismo párrafo.',
+                'Cada plantilla va en el centro, en amarillo, igual que en la libreta. A los dos lados, los bocadillos '
+                'del mismo párrafo, con la cola hacia la plantilla.',
                 'El número naranja de un hueco es el número de su bocadillo.',
                 'Bocadillo naranja, «fijo»: se memoriza y se escribe tal cual. Bocadillo verde, «ideas»: se elige o '
-                'se adapta una.',
+                'se adapta una. Los bocadillos traen el contenido para estudiar; solo los autores se concretarán con '
+                'los temas.',
                 'En el 4.1, los bloques «siempre» van en todos los supuestos; de los bloques «según el supuesto», '
                 'solo uno o dos, los que pida el enunciado.'):
             self.p(_run('•  ', color=NARANJA_BORDE, tam=10.5) + _run(texto, tam=10.5, color='262626'),
@@ -284,54 +299,65 @@ class Constructor:
         return el
 
     def plantilla(self, clave):
+        """Plantilla entera en la columna central y sus bocadillos repartidos a izquierda y derecha, en orden y
+        equilibrando el alto de los dos lados."""
         datos = T.PLANTILLAS[clave]
         boc = T.BOCADILLOS.get(clave, {})
         self.titulo(datos['titulo'])
-        filas = datos['filas']
-        t = self.d.add_table(rows=len(filas) + 1, cols=2)
+        anchos = (ANCHO_LADO, ANCHO_CENTRO, ANCHO_LADO)
+        t = self.d.add_table(rows=1, cols=3)
         t.alignment = WD_TABLE_ALIGNMENT.LEFT
         t.autofit = False
         tbl = t._tbl
-        tblpr = tbl.tblPr
-        grid = tbl.tblGrid
-        for i, w in enumerate((ANCHO_IZQ, ANCHO_DER)):
-            grid.gridCol_lst[i].w = Cm(w)
-        for r_i, row in enumerate(t.rows):
-            row._tr.get_or_add_trPr().append(OxmlElement('w:cantSplit'))   # cada párrafo, entero en una página
-            izq, der = row.cells[0], row.cells[1]
-            izq.width, der.width = Cm(ANCHO_IZQ), Cm(ANCHO_DER)
-            for c in (izq, der):
-                _limpia_celda(c._tc)
-            reubicar = r_i > 0 and filas[r_i - 1].get('reubicar')
-            _bordes_celda(izq._tc, izq=('BFBFBF' if reubicar else NARANJA_BORDE))
-            _bordes_celda(der._tc)
-            _fondo(izq._tc, 'F2F2F2' if reubicar else CREMA)
-            _margenes(izq._tc, 200, 160, 70 if r_i == 0 else 20, 60)
-            _margenes(der._tc, 200, 0, 40, 0)
-            if r_i == 0:
-                izq._tc.append(_parrafo_xml(_run('Plantilla de redacción', versalitas=True, negrita=True,
-                                                 color=NARANJA_BORDE, tam=8.5), despues=0))
-                der._tc.append(_parrafo_xml('', despues=0))
-                continue
-            fila = filas[r_i - 1]
+        for i, w in enumerate(anchos):
+            tbl.tblGrid.gridCol_lst[i].w = Cm(w)
+        izq, cen, der = t.rows[0].cells
+        for c, w in zip(t.rows[0].cells, anchos):
+            c.width = Cm(w)
+            _limpia_celda(c._tc)
+        _bordes_celda(izq._tc)
+        _bordes_celda(der._tc)
+        _bordes_celda(cen._tc, izq=NARANJA_BORDE)
+        _fondo(cen._tc, CREMA)
+        _margenes(cen._tc, 220, 220, 90, 80)
+        _margenes(izq._tc, 0, 120, 60, 0)
+        _margenes(der._tc, 120, 0, 60, 0)
+        cen._tc.append(_parrafo_xml(_run('Plantilla de redacción', versalitas=True, negrita=True, color=NARANJA_BORDE,
+                                         tam=8.5), despues=60))
+        nums = []
+        for fila in datos['filas']:
+            reubicar = fila.get('reubicar')
+            gris = ('<w:pBdr><w:left w:val="single" w:sz="18" w:space="6" w:color="BFBFBF"/></w:pBdr>'
+                    '<w:shd w:val="clear" w:color="auto" w:fill="EDEDED"/>') if reubicar else ''
             if fila.get('etiqueta'):
                 color = '7F7F7F' if reubicar else AZUL
                 txt = ('⚠ ' + fila['etiqueta']) if reubicar else fila['etiqueta']
-                izq._tc.append(_parrafo_xml(_run(txt, negrita=True, versalitas=True, color=color, tam=8.5),
-                                            antes=100, despues=40))
-            izq._tc.append(_parrafo_xml(runs_plantilla(fila['texto']), despues=80, alin='both'))
+                cen._tc.append(_parrafo_xml(_run(txt, negrita=True, versalitas=True, color=color, tam=8.5),
+                                            antes=120, despues=40, ind=gris or None))
+            cen._tc.append(_parrafo_xml(runs_plantilla(fila['texto'], tam=10.5), despues=100, alin='both',
+                                        ind=gris or None))
             if reubicar:
-                izq._tc.append(_parrafo_xml(_run(T.NOTA_REUBICAR, cursiva=True, color='7F7F7F', tam=9),
-                                            despues=60, alin='both'))
-            nums = [int(m) for m in re.findall(r'[\[{](\d+)\|', fila['texto'])]
-            if not nums:
-                der._tc.append(_parrafo_xml('', despues=0))
-            for n in nums:
+                cen._tc.append(_parrafo_xml(_run(T.NOTA_REUBICAR, cursiva=True, color='7F7F7F', tam=9.5),
+                                            despues=60, alin='both', ind=gris))
+            nums += [int(m) for m in re.findall(r'[\[{](\d+)\|', fila['texto'])]
+        # reparto equilibrado: el más alto primero, al lado que lleva menos; después, cada lado en orden de número
+        alto = {'izq': 0.0, 'der': 0.0}
+        lados = {'izq': [], 'der': []}
+        for n in sorted(nums, key=lambda k: -alto_bocadillo(k, *boc[k])):
+            lado = 'izq' if alto['izq'] <= alto['der'] else 'der'
+            alto[lado] += alto_bocadillo(n, *boc[n]) + 0.2
+            lados[lado].append(n)
+        celdas = {'izq': izq, 'der': der}
+        for lado in ('izq', 'der'):
+            for n in sorted(lados[lado]):
                 titulo, tipo, lineas = boc[n]
                 self.n_id += 1
-                par = _parrafo_xml('', despues=0)
-                par.append(parse_xml(bocadillo(self.n_id, n, titulo, tipo, lineas)))
-                der._tc.append(par)
+                par = _parrafo_xml('', despues=0, alin='right' if lado == 'izq' else None)
+                par.append(parse_xml(bocadillo(self.n_id, n, titulo, tipo, lineas, lado)))
+                celdas[lado]._tc.append(par)
+        for lado in ('izq', 'der'):
+            if celdas[lado]._tc.find(qn('w:p')) is None:
+                celdas[lado]._tc.append(_parrafo_xml('', despues=0))
         self._anade(tbl)
 
     def pendiente(self, texto):
@@ -377,11 +403,12 @@ class Constructor:
                     'textos son resúmenes. La primera área se desarrolla entera; de la segunda, solo la competencia.',
                     tam=9.5, color=GRIS_TXT, cursiva=True), despues=100, alin='both')
         self.tabla(['Área', 'Competencia específica', 'Criterio de 5.º', 'Un saber básico', 'Descriptores'],
-                   [list(f) for f in T.ELEMENTOS], [1.2, 5.0, 4.6, 4.6, 2.0])
+                   [list(f) for f in T.ELEMENTOS], [1.5, 7.6, 7.0, 7.6, 3.0])
 
     def orientaciones(self):
-        self.p(_run('Orientaciones metodológicas de cada área', negrita=True, color=AZUL, tam=12), antes=240,
-               despues=60)
+        el = self.p(_run('Orientaciones metodológicas de cada área', negrita=True, color=AZUL, tam=12), antes=0,
+                    despues=60)
+        el.find(qn('w:pPr')).insert(0, OxmlElement('w:pageBreakBefore'))
         self.p(_run('Anexo II de la Orden de 30 de mayo de 2023, introducción de cada área: una idea por frase, en '
                     'tres o cuatro palabras. Con ★, las más útiles para citar en el supuesto. Se omiten las frases que '
                     'solo enumeran los bloques de saberes.', tam=9.5, color=GRIS_TXT, cursiva=True), despues=100,
@@ -391,7 +418,7 @@ class Constructor:
         t = self.d.add_table(rows=n + 1, cols=len(areas))
         t.autofit = False
         tbl = t._tbl
-        ancho = 17.4 / len(areas)
+        ancho = UTIL / len(areas)
         for i in range(len(areas)):
             tbl.tblGrid.gridCol_lst[i].w = Cm(ancho)
         for r_i, row in enumerate(t.rows):
@@ -433,7 +460,7 @@ class Constructor:
 
 
 def main():
-    c = Constructor()
+    c = Constructor(apaisado=True)
     c.portada()
     for clave in ('7.1', '7.2', '7.3', '7.5', '7.6', '7.7', '7.8', '7.9'):
         c.plantilla(clave)

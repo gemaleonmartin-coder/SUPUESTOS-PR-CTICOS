@@ -41,8 +41,6 @@ COMENTARIOS = {
     '61a': 'Antes: «… escuelas infantiles de segundo grado …», sin el Decreto 483/2026. Ahora: «segundo ciclo», como en el '
            'texto consolidado del BOJA (31/8/2026) y en tu programación, y «modificado por el Decreto 483/2026», que Gem '
            'quiere ver en el 4.1.',
-    '61b': 'Antes: 4.2.1. Ahora: 4.2 (datos). Por qué: el artículo 3.1 de la Orden entra en los datos identificativos (lo '
-           'pide Gem, como Edu), así que la primera mención completa se adelanta.',
     '61c': 'Antes: «Norma específica: la del tema (Parte II, apartado 3, y Parte III)». Ahora: la instrucción del área. Por '
            'qué: Gem quiere que la tercera norma del apartado 3 sea siempre una instrucción (lectura, matemáticas o '
            'bibliotecas). Las de bibliotecas de 2013 están sustituidas por las de 10 de septiembre de 2025.',
@@ -53,8 +51,6 @@ COMENTARIOS = {
            '7.2 se queda para metodología (decisión de Gem).',
     '62b': 'Antes: «Decreto 328/2010». Ahora: con el Decreto 483/2026 y el artículo 21.3 (líneas, objetivos y criterios '
            'pedagógicos).',
-    '62c': 'Fila nueva: el artículo 3.1 de la Orden, en los datos identificativos (corrección de Gem).',
-    '62d': 'Antes: «Orden de 30 de mayo de 2023». Ahora: su anexo II, en forma corta (ya presentada en los datos).',
     '62e': 'Antes: «Decreto 101/2023, artículos 6 y 7». Ahora: artículo 6 con sus tres principios fijos, 7.2 y el anexo II '
            'de la Orden (orientaciones metodológicas del área).',
     '62f': 'Antes: «cinco o seis normas». Ahora: «seis o siete», por la instrucción y el Decreto 483/2026.',
@@ -105,19 +101,17 @@ COMENTARIOS = {
     '75l': 'Filas nuevas.',
     '75m': 'Antes: «En el modelo estándar se omite la frase del agente externo o la del trámite…». Ahora: la regla de los '
            'bloques.',
-    '76a': 'Antes: «90 palabras · 4 min · 1 párrafo de 3 frases». Ahora: unas 215 y 4 frases, con el ODS y el '
-           'nombre completo de la Orden. Decisión de Gem (20/11/2026): se aceptan unas 2.600 palabras en total (unos 5 minutos más de escritura).',
-    '77f': 'Antes: «220 palabras · 10 min». Ahora: unas 150, porque el nombre completo de la Orden pasa a los datos '
-           'identificativos.',
-    '76b': 'Nuevo: la cuarta frase (Gem: el ODS y lo que siempre dice Edu del artículo 3.1 de la Orden).',
+    '76a': 'Antes: «90 palabras · 4 min · 1 párrafo de 3 frases». Ahora: unas 105 y 4 frases, con el ODS. La Orden '
+           'se queda en la concreción curricular (Gem: se cita después). Decisión de Gem (20/11/2026): se aceptan unas 2.600 palabras en total (unos 5 minutos más de escritura).',
+    '76b': 'Nuevo: la cuarta frase, con el ODS (Gem). La Orden no se cita aquí porque se presenta en la concreción.',
     '76c': 'Antes: «vínculo con el principio pedagógico anunciado en 3». Ahora no: los principios ya no se anuncian en 3.',
     '76d': 'Fila nueva.',
-    '77a': 'Antes: «Primera mención completa de la Orden de 30 de mayo de 2023». Ahora ya está presentada en los datos.',
     '77b': 'Nuevo y obligatorio: la segunda área (Gem: una sola queda pobre). Antes era recomendable.',
     '77c': 'Antes: «… segunda competencia específica de otra área, solo nombrada; …». Ahora es obligatoria.',
     '77d': 'Antes: «si deja libertad, un área eje y una o dos conectadas». Ahora: una entera y otra con su competencia.',
     '77e': 'Fila nueva.',
-    '78a': 'Antes: «3 párrafos». Ahora: 4.',
+    '78j': 'Antes: «Variedad de materiales y recursos» y «Distintas formas de presentación…» en metodología. Ahora, al '
+           'final de las actividades de la secuencia, como los recursos digitales (Gem: ese párrafo ya se reubicó).',
     '78b': 'Antes: «dos o tres, cada uno con su ejemplo». Ahora: siempre el DUA, Andalucía y lo digital (Gem).',
     '78c': 'Nuevo: técnicas cooperativas concretas (en el Word de plantillas, bocadillo con las técnicas).',
     '78d': 'Antes: «Enfoque integrador, interdisciplinar y holístico: qué aporta cada área». Ahora se acredita en 3 y el '
@@ -128,11 +122,11 @@ COMENTARIOS = {
            '(introducción de cada área), no en el III: el III es la vinculación de objetivos y descriptores; las páginas '
            'del BOJA llevan la cabecera «ANEXO II y III».',
     '78g': 'Antes: «…; conexión con la realidad andaluza; …». Ahora es obligatoria (principio g).',
-    '78h': 'Antes: «(4) interdisciplinariedad; (5) recursos materiales, tecnológicos y de accesibilidad». Ahora: '
-           'materiales y formatos; orientaciones del área.',
+    '78h': 'Antes: «(4) interdisciplinariedad; (5) recursos materiales, tecnológicos y de accesibilidad». Ahora: las '
+           'orientaciones del área (materiales, formatos y recursos digitales pasan al 4.2.3).',
     '78i': 'Filas nuevas.',
-    '79a': 'Nuevo: la frase de los recursos digitales que estaba en metodología (Gem: va en la secuencia, al final de las '
-           'actividades). El resto del 7.9 no se ha revisado (se verá en la próxima clase).',
+    '79a': 'Nuevo: materiales, formatos y recursos digitales, que estaban en metodología (Gem: van en la secuencia, al '
+           'final de las actividades). El resto del 7.9 no se ha revisado (se verá en la próxima clase).',
 }
 
 COMENT_PLANTILLA = {
@@ -160,20 +154,20 @@ COMENT_PLANTILLA = {
     ('7.5', 8): 'Nuevo bloque según el supuesto (libreta de Gem, bloque H).',
     ('7.5', 9): 'Nuevo bloque según el supuesto (libreta de Gem). La hora de autonomía del tercer ciclo puede dedicarse a '
                 'proyectos interdisciplinares.',
-    ('7.6', 1): 'Nuevo: el ODS y el artículo 3.1 de la Orden (primera mención, con su nombre completo).',
-    ('7.7', 0): 'Antes: la primera mención completa de la Orden y «contribuye al objetivo de etapa» sin norma. Ahora: el '
-                'objetivo con el artículo 5 del Decreto 101/2023 y la Orden en forma corta.',
+    ('7.6', 1): 'Nuevo: el ODS y la continuidad con la línea o el objetivo del contexto (sin la Orden, que se presenta en '
+                'la concreción).',
+    ('7.7', 0): 'Antes: «Conforme a la Orden … la situación contribuye al objetivo de etapa». Ahora: el objetivo con el '
+                'artículo 5 del Decreto 101/2023 (valoración del artículo 5) y la Orden, con su primera mención completa, '
+                'ligada a su anexo II.',
     ('7.7', 1): 'Antes: «De forma complementaria, desde [segunda área] se trabaja…». Ahora, más claro: la segunda área con '
                 'su competencia resumida.',
     ('7.8', 0): 'Antes: «[principio 1] ([ejemplo]), [principio 2] ([ejemplo]) y el DUA». Ahora: siempre el DUA, Andalucía y '
                 'lo digital.',
     ('7.8', 1): 'Antes: «De acuerdo con su artículo 7…» en el primer párrafo. Ahora abre el segundo, con la metodología y '
                 'las técnicas.',
-    ('7.8', 2): 'Antes, dentro del último párrafo. Ahora: materiales y formatos, sin los recursos tecnológicos (pasan al '
-                '4.2.3) ni el entorno andaluz (ya es principio).',
-    ('7.8', 3): 'Nuevo: las orientaciones metodológicas del área, como último bloque (Gem).',
-    ('7.8', 4): 'Marcado para reubicar, como pidió Gem: el párrafo es bueno, pero no va aquí.',
-    ('7.9', 0): 'Nuevo: la frase de los recursos digitales, que llega de la metodología.',
+    ('7.8', 2): 'Nuevo: las orientaciones metodológicas del área, como último bloque (Gem).',
+    ('7.8', 3): 'Marcado para reubicar, como pidió Gem: el párrafo es bueno, pero no va aquí.',
+    ('7.9', 0): 'Nuevo: materiales, formatos y recursos digitales, que llegan de la metodología.',
 }
 
 # ---------------------------------------------------------------------------------------------------------------
@@ -203,7 +197,7 @@ tabla(['Norma', 'Nombre completo (primera mención)', 'Apartado', 'Forma posteri
     ['Currículo andaluz', T.D101_COMPLETO, '3', 'Decreto 101/2023'],
     ['Reglamento Orgánico', '<<' + T.D328_COMPLETO + ', modificado por el ' + T.D483_COMPLETO + '>>{#61a}', '4.1',
      'Decreto 328/2010'],
-    ['Orden de desarrollo', T.ORDEN_COMPLETA, '<<4.2 (datos)>>{#61b}', 'Orden de 30 de mayo de 2023'],
+    ['Orden de desarrollo', T.ORDEN_COMPLETA, '4.2.1', 'Orden de 30 de mayo de 2023'],
     ['<<Instrucción del área>>{#61c}', '<<Instrucciones de 21 de junio de 2023 (lectura), de 18 de junio de 2024 '
                                        '(matemáticas) o de 10 de septiembre de 2025 (bibliotecas), con su nombre '
                                        'completo (Parte II, 3)>>{#61c}', '3', '<<Instrucciones de [fecha]>>{#61c}'],
@@ -219,8 +213,7 @@ tabla(['Apartado', 'Autores', 'Normas'], [
                '(Instrucciones de 21 de junio de 2023), matemáticas (Instrucciones de 18 de junio de 2024) o bibliotecas '
                '(Instrucciones de 10 de septiembre de 2025)>>{#62a}'],
     ['4.1', '—', '<<Decreto 328/2010, modificado por el Decreto 483/2026 (artículo 21.3)>>{#62b}'],
-    ['<<4.2 (datos)>>{#62c}', '<<—>>{#62c}', '<<Orden de 30 de mayo de 2023, artículo 3.1>>{#62c}'],
-    ['4.2.1', '—', '<<Orden de 30 de mayo de 2023, anexo II (forma corta)>>{#62d}'],
+    ['4.2.1', '—', 'Orden de 30 de mayo de 2023'],
     ['4.2.2', '1', '<<Decreto 101/2023, artículos 6 (letras c, e y g) y 7.2; Orden de 30 de mayo de 2023, anexo II>>{#62e}'],
     ['4.2.4', '—', 'Orden de 30 de mayo de 2023, artículos 27 y 33'],
     ['4.2.5', '(opcional)', 'Orden de 30 de mayo de 2023, artículos 9 y 10'],
@@ -391,16 +384,15 @@ p('<<En el modelo estándar se escriben los bloques fijos y, de los bloques seg�
 # 7.6 -------------------------------------------------------------------------------------------------------------
 h2('7.6. Intervención a nivel de aula: datos identificativos (transición)')
 ficha('**Presentar la situación de aprendizaje de un vistazo antes de desarrollarla: ubicarla en el tiempo y precisar las '
-      'áreas**', '<<215 palabras · 9 min · 1 párrafo de 4 frases>>{#76a}', 'C4 (temporalización); C2 secundario')
+      'áreas**', '<<105 palabras · 5 min · 1 párrafo de 4 frases>>{#76a}', 'C4 (temporalización); C2 secundario')
 p('Si el enunciado no dice curso, se elige aquí y se declara una sola vez; todo el currículo se toma de ese curso.')
 p('Los siete datos, en este orden: (1) título; (2) curso y ciclo; (3) área eje y áreas conectadas; (4) trimestre y, si '
   'procede, efeméride; (5) duración en sesiones y semanas; (6) producto final y destinatario; (7) reto de partida con las '
   'palabras del enunciado.')
 p('**Cómo redactarlos**: tres frases encadenadas, sin rótulos ni dos puntos. La primera identifica (título, curso, áreas); '
   'la segunda sitúa en el tiempo (trimestre, sesiones, efeméride); la tercera da sentido (reto → producto → '
-  'destinatario). <<La cuarta conecta con los intereses del alumnado y con un Objetivo de Desarrollo Sostenible, da '
-  'continuidad a la línea o al objetivo del contexto y cita el artículo 3.1 de la Orden de 30 de mayo de 2023, que aquí '
-  'se menciona por primera vez con su nombre completo.>>{#76b}')
+  'destinatario). <<La cuarta conecta con los intereses del alumnado y con un Objetivo de Desarrollo Sostenible y da '
+  'continuidad a la línea o al objetivo del contexto.>>{#76b}')
 p('**Recomendable**: <<mención de que forma parte de la programación didáctica del ciclo>>{#76c}. Comprobación '
   'aritmética: las sesiones coinciden con las que suma 4.2.3.')
 tabla(['Error', 'Cómo evitarlo'], [
@@ -409,7 +401,7 @@ tabla(['Error', 'Cómo evitarlo'], [
     ['Sesiones que no cuadran', 'Anotar la suma en el borrador'],
     ['Título ingenioso sin relación con el reto', 'Título que contenga el reto o el producto'],
     ['Duración inverosímil', 'Entre 8 y 15 sesiones; 12 como tipo'],
-    ['<<Olvidar el ODS o el artículo 3.1 de la Orden>>{#76d}', '<<Cuarta frase, siempre>>{#76d}'],
+    ['<<Olvidar el ODS>>{#76d}', '<<Cuarta frase, siempre>>{#76d}'],
 ], [8.7, 8.7])
 plantilla('7.6')
 p('Si el enunciado pide un taller o una sesión, la duración se da en minutos y se dice en qué unidad mayor se inserta.')
@@ -417,7 +409,7 @@ p('Si el enunciado pide un taller o una sesión, la duración se da en minutos y
 # 7.7 -------------------------------------------------------------------------------------------------------------
 h2('7.7. Concreción curricular')
 ficha('**Comprobar el dominio del currículo vigente de Andalucía mediante una selección breve, exacta y asociada al '
-      'supuesto**', '<<150 palabras · 7 min>>{#77f} · 1 párrafo en cadena', 'C3 (cinco indicadores de igual valor); C6 secundario')
+      'supuesto**', '220 palabras · 10 min · 1 párrafo en cadena', 'C3 (cinco indicadores de igual valor); C6 secundario')
 sub('Contenido obligatorio (uno por indicador de C3)')
 bul('Competencia específica del área eje, con su número y su idea central.',
     'Criterio de evaluación del ciclo, con su código.',
@@ -426,8 +418,7 @@ bul('Competencia específica del área eje, con su número y su idea central.',
     'Competencia clave a la que contribuyen.',
     '<<Competencia específica de una segunda área, con su número y su idea central en una línea: nunca una sola '
     'área.>>{#77b}',
-    '<<La Orden de 30 de mayo de 2023, ya presentada en los datos identificativos, en forma corta y con su anexo '
-    'II.>>{#77a}')
+    'Primera mención completa de la Orden de 30 de mayo de 2023.')
 p('**Recomendable**: objetivo de etapa (artículo 5 del Decreto 101/2023); <<glosa de por qué ese elemento responde al '
   'reto>>{#77c}.')
 p('**Estructura interna** (cadena de lo general a lo evaluable): objetivo de etapa → competencia específica → criterio de '
@@ -458,7 +449,7 @@ plantilla('7.7')
 h2('7.8. Metodología')
 ficha('**Mostrar el dominio de estrategias docentes: principios y decisiones metodológicas justificados y aplicados a '
       'esta propuesta. El texto debe permitir localizar los seis indicadores de C7**', '280 palabras · 12 min · '
-      '<<4 párrafos>>{#78a}', 'C7 (15 %)')
+      '3 párrafos', 'C7 (15 %)')
 sub('Contenido obligatorio (uno por indicador de C7)')
 num('Principios pedagógicos (artículo 6 del Decreto 101/2023), <<siempre estos tres, cada uno con su ejemplo: Diseño '
     'Universal para el Aprendizaje (letra e), patrimonio cultural y natural de Andalucía (letra g) y tecnologías de la '
@@ -467,10 +458,11 @@ num('Principios pedagógicos (artículo 6 del Decreto 101/2023), <<siempre estos
     'concretas>>{#78c}.',
     '<<Enfoque integrador, interdisciplinar y holístico: se acredita en 3 (artículo 7.3); su párrafo de la plantilla '
     'queda pendiente de reubicar.>>{#78d}',
-    'Variedad de materiales y recursos.',
+    '<<Variedad de materiales y recursos: al final de las actividades, en 4.2.3.>>{#78j}',
     '<<Recursos tecnológicos con finalidad didáctica: con el principio de la letra c) y, al final de las actividades, en '
     '4.2.3.>>{#78e}',
-    'Distintas formas de presentación para distintos estilos y ritmos (Diseño Universal para el Aprendizaje).',
+    '<<Distintas formas de presentación para distintos estilos y ritmos: también al final de las actividades, en 4.2.3; '
+    'aquí, el DUA se ejemplifica como principio.>>{#78j}',
     '<<Orientaciones metodológicas para la adquisición de las competencias específicas del área (anexo II de la Orden de '
     '30 de mayo de 2023, introducción de cada área), como último bloque y en tres o cuatro palabras (tabla del Word de '
     'plantillas).>>{#78f}')
@@ -478,8 +470,8 @@ p('**Recomendable**: autor de la metodología principal; papel docente y gestió
   '<<coherencia con la línea de actuación del contexto>>{#78g}; referencia al esquema del anexo IV de la Orden de 30 de '
   'mayo de 2023.')
 p('**Estructura interna**: (1) principios ejemplificados<< (DUA, Andalucía y digital)>>{#78h}; (2) metodología principal '
-  '(nombre, autor, rasgo esencial, cómo se despliega); (3) agrupamientos y técnicas; <<(4) materiales y formatos; (5) '
-  'orientaciones metodológicas del área>>{#78h}.')
+  '(nombre, autor, rasgo esencial, cómo se despliega); (3) agrupamientos y técnicas; <<(4) orientaciones metodológicas del '
+  'área>>{#78h}.')
 p('**Relación con 4.2.3**: aquí se justifica el cómo una sola vez; en la secuencia, técnicas y recursos aparecen entre '
   'paréntesis dentro de las actividades.')
 tabla(['Error', 'Cómo evitarlo'], [
@@ -490,7 +482,8 @@ tabla(['Error', 'Cómo evitarlo'], [
     ['Definiciones atribuidas a autores sin verificar', 'Solo autores de la Parte II'],
     ['Ignorar la metodología que exige el enunciado', 'En T6 es lo primero que se desarrolla'],
     ['<<Olvidar uno de los tres principios fijos>>{#78i}', '<<DUA, Andalucía y digital, siempre con ejemplo>>{#78i}'],
-    ['<<Detallar aquí los recursos digitales>>{#78i}', '<<Van al final de las actividades (4.2.3)>>{#78i}'],
+    ['<<Detallar aquí materiales, formatos y recursos digitales>>{#78i}', '<<Van al final de las actividades '
+                                                                         '(4.2.3)>>{#78i}'],
 ], [8.7, 8.7])
 plantilla('7.8')
 

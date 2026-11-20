@@ -83,13 +83,13 @@ PLANTILLAS = {
                       'epistemológico, [1|autor 1 (año)] sostiene que [idea sobre el tema], mientras que [autor 2 (año)] '
                       'destaca [idea sobre el enfoque], lo que justifica [decisión didáctica], adecuada a un alumnado que, '
                       'a esta edad, [rasgo evolutivo].'},
-            {'texto': '{2|Desde el punto de vista normativo, el ' + RD_COMPLETO + ' (en adelante, Real Decreto 157/2022), '
-                      'establece en su artículo 10.2 que, para la adquisición y el desarrollo de las competencias clave y '
+            {'texto': '{2|Desde el punto de vista normativo,} el ' + RD_COMPLETO + ' (en adelante, Real Decreto 157/2022), '
+                      'establece en su artículo 10.2{3|} que, para la adquisición y el desarrollo de las competencias clave y '
                       'de las competencias específicas, el equipo docente planificará situaciones de aprendizaje. En '
                       'coherencia, el ' + D101_COMPLETO + ' (en adelante, Decreto 101/2023), garantiza en su artículo 7.3 '
                       'el funcionamiento coordinado de los equipos docentes al plantear las situaciones de aprendizaje, con '
-                      'un enfoque interdisciplinar, integrador y holístico,} que esta propuesta concreta en [conexión entre '
-                      'áreas o acuerdo del equipo docente]. Asimismo, [3|instrucción del área] [qué establece], que aquí se '
+                      'un enfoque interdisciplinar, integrador y holístico, que esta propuesta concreta en [conexión entre '
+                      'áreas o acuerdo del equipo docente]. Asimismo, [4|instrucción del área] [qué establece], que aquí se '
                       'traduce en [decisión de la propuesta].', 'nuevo': True},
         ],
     },
@@ -109,26 +109,26 @@ PLANTILLAS = {
                       'el profesorado de [Pedagogía Terapéutica o Audición y Lenguaje] interviene dentro del aula en '
                       '[sesiones], y el seguimiento se realiza [periodicidad].'},
             {'texto': 'Para su desarrollo, se reservan [5|espacios del centro y del entorno] conforme al reglamento de '
-                      'organización y funcionamiento. Además, los criterios pedagógicos del proyecto educativo, que el '
+                      'organización y funcionamiento. Además, los criterios pedagógicos del proyecto educativo{6|}, que el '
                       'artículo 21.3.c) del Decreto 328/2010 establece como base para planificar, entre otros aspectos, el '
-                      'tiempo escolar y extraescolar, orientan la actividad complementaria [6|salida o visita], que el '
-                      'equipo de ciclo incluye en la programación didáctica; el uso de [7|recurso digital] como herramienta '
-                      'común, y la integración de la cultura andaluza mediante [8|elemento andaluz].', 'nuevo': True},
+                      'tiempo escolar y extraescolar, orientan la actividad complementaria [7|salida o visita], que el '
+                      'equipo de ciclo incluye en la programación didáctica; el uso de [8|recurso digital] como herramienta '
+                      'común, y la integración de la cultura andaluza mediante [9|elemento andaluz].', 'nuevo': True},
             {'etiqueta': SEGUN,
-             'texto': 'Familias y entorno. Las familias son informadas mediante [9|cauce] y participan en [actividad]; con '
+             'texto': 'Familias y entorno. Las familias son informadas mediante [10|cauce] y participan en [actividad]; con '
                       'el entorno, se colabora con [entidad] para [función].', 'nuevo': True},
             {'texto': 'Protección de datos. Conforme a la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos '
                       'Personales y garantía de los derechos digitales, al ser el alumnado menor de catorce años, se recaba '
-                      'por [iPasen] la autorización de las familias antes de difundir [10|grabaciones o imágenes].',
+                      'por [iPasen] la autorización de las familias antes de difundir [11|grabaciones o imágenes].',
              'nuevo': True},
             {'texto': 'Especialistas del equipo docente. El equipo docente, coordinado por la tutoría, acuerda '
-                      '[11|aportación de especialistas de área].', 'nuevo': True},
-            {'texto': 'Lo que marca el proyecto educativo. Siguiendo los acuerdos del proyecto educativo, [12|lectura diaria '
+                      '[12|aportación de especialistas de área].', 'nuevo': True},
+            {'texto': 'Lo que marca el proyecto educativo. Siguiendo los acuerdos del proyecto educativo, [13|lectura diaria '
                       'o modelo común de resolución de problemas].', 'nuevo': True},
-            {'texto': 'Servicios complementarios. La propuesta se extiende a [13|comedor o aula matinal], en coordinación '
+            {'texto': 'Servicios complementarios. La propuesta se extiende a [14|comedor o aula matinal], en coordinación '
                       'con [responsable del Plan de Apertura de Centros Docentes].', 'nuevo': True},
             {'texto': 'Proyecto interdisciplinar. Al tratarse de un proyecto interdisciplinar, se desarrolla también en '
-                      '[14|la hora semanal de autonomía del centro].', 'nuevo': True},
+                      '[15|la hora semanal de autonomía del centro].', 'nuevo': True},
             {'etiqueta': CIERRE,
              'texto': 'Las conclusiones se trasladarán a la memoria de autoevaluación.'},
         ],
@@ -142,23 +142,19 @@ PLANTILLAS = {
                       '[coincidiendo con [1|efeméride]]. Parte del reto de [reto con palabras del enunciado] y culmina en '
                       '[producto final], que se presentará a [destinatario].'},
             {'texto': 'La situación conecta con los intereses del alumnado y con el Objetivo de Desarrollo Sostenible (ODS) '
-                      '[2|número y nombre], y da continuidad a [la línea o el objetivo de mejora del contexto]. Asimismo, '
-                      '{3|la ' + ORDEN_COMPLETA + ' (en adelante, Orden de 30 de mayo de 2023), establece en su artículo 3.1 '
-                      'que las situaciones de aprendizaje integren los elementos curriculares de las distintas áreas para '
-                      'atender a la diversidad, las necesidades y los intereses del alumnado, sentido que guía esta '
-                      'propuesta.}', 'nuevo': True},
+                      '[2|número y nombre], y da continuidad a [la línea o el objetivo de mejora del contexto].', 'nuevo': True},
         ],
     },
     '7.7': {
         'titulo': '7.7. Concreción curricular',
         'filas': [
             {'texto': 'La situación de aprendizaje contribuye al objetivo de etapa [1|letra]), recogido en el artículo 5 '
-                      'del Decreto 101/2023. Conforme al anexo II de la Orden de 30 de mayo de 2023, se centra, en [área '
-                      'eje], en la competencia específica [2|n.º], referida a [idea central], que se valorará mediante el '
+                      'del Decreto 101/2023. Conforme al anexo II de la {2|' + ORDEN_COMPLETA + ' (en adelante, Orden de 30 de '
+                      'mayo de 2023)}, se centra, en [área eje], en la competencia específica [3|n.º], referida a [idea central], que se valorará mediante el '
                       'criterio de evaluación [código], [paráfrasis]. Moviliza saberes básicos del bloque [bloque], en '
                       'particular [saber]. Esta competencia se vincula con los descriptores operativos [código 1] y '
                       '[código 2] y contribuye así a la competencia [competencia clave].', 'nuevo': True},
-            {'texto': 'Asimismo, desde [3|segunda área] se desarrolla la competencia específica [n.º], que persigue [idea '
+            {'texto': 'Asimismo, desde [4|segunda área] se desarrolla la competencia específica [n.º], que persigue [idea '
                       'central resumida en una línea]. Estos elementos se movilizan en la secuencia que se describe más '
                       'adelante.', 'nuevo': True},
         ],
@@ -175,9 +171,6 @@ PLANTILLAS = {
                       '[rasgo esencial] y que aquí se concreta en [despliegue]. Se combinan el trabajo individual '
                       '([5|ejemplo]), el cooperativo, en equipos heterogéneos con roles rotativos y técnicas como '
                       '[6|técnica 1] y [técnica 2], y el aprendizaje entre iguales ([ejemplo]).', 'nuevo': True},
-            {'texto': 'Se emplean materiales variados ([manipulativos, impresos, del entorno]) y la información se presenta '
-                      'en distintos formatos ([visual, oral, manipulativo]) para atender a los diferentes ritmos y estilos.',
-             'nuevo': True},
             {'texto': 'Por último, de acuerdo con las orientaciones que el anexo II de la Orden de 30 de mayo de 2023 recoge '
                       'para [área], la propuesta [7|idea clave del área], como [ejemplo en la propuesta].', 'nuevo': True},
             {'etiqueta': REUBICAR,
@@ -186,25 +179,43 @@ PLANTILLAS = {
         ],
     },
     '7.9': {
-        'titulo': '7.9. Secuencia didáctica (solo la frase que llega de la metodología)',
+        'titulo': '7.9. Secuencia didáctica (solo lo que llega de la metodología)',
         'filas': [
-            {'texto': 'En las actividades se emplean recursos tecnológicos con finalidad didáctica, como [1|herramienta] '
-                      'para [función] y [herramienta] para [función].', 'nuevo': True},
+            {'texto': 'En las actividades se emplean materiales variados ([1|manipulativos, impresos, del entorno]) y '
+                      'recursos tecnológicos con finalidad didáctica, como [2|herramienta] para [función], y la '
+                      'información se presenta en distintos formatos ([visual, oral, manipulativo]) para atender a los '
+                      'diferentes ritmos y estilos.', 'nuevo': True},
         ],
     },
 }
 
 # Bocadillos: (título, tipo, líneas). Tipo: «FIJO» (se escribe tal cual) o «IDEAS» (se elige una o se adapta).
+# Llevan el contenido para estudiar (salvo los autores, que se concretarán con los temas).
 BOCADILLOS = {
     '7.1': {
-        1: ('Gancho', 'IDEAS', ['Solo datos verificados (Parte II, 1); ante la duda, pregunta retórica.',
-                                '«¿Qué ocurre cuando…?», «¿Cómo puede un grupo de quinto…?»']),
-        2: ('Autor', 'IDEAS', ['Uno específico del tema, del banco de la Parte II (1 y 3).']),
-        3: ('Objetivo de la etapa (artículo 17 de la LOE)', 'IDEAS',
-            ['e) lengua castellana y hábitos de lectura.', 'g) competencias matemáticas y resolución de problemas.',
-             'h) ciencias, geografía, historia y cultura.', 'i) competencias tecnológicas.',
-             'j) representaciones y expresiones artísticas.', 'k) higiene, salud y alimentación.']),
-        4: ('Áreas', 'IDEAS', ['Siempre dos como mínimo: un área eje y otra conectada.']),
+        1: ('Gancho: preguntas retóricas y un dato', 'IDEAS', [
+            'Lectura. ¿Es posible aprender ciencias, historia o matemáticas sin comprender lo que se lee?',
+            'Matemáticas. ¿Cómo esperar que el alumnado resuelva problemas si no comprende sus enunciados?',
+            'Medio ambiente. ¿Cómo esperar que las nuevas generaciones protejan el planeta si no aprenden a valorarlo?',
+            'Inclusión. ¿Por qué diseñar para un alumno o alumna «tipo» si en el aula no existe?',
+            'Convivencia. ¿Puede aprender quien no se siente seguro ni aceptado en su aula?',
+            'Tecnología. ¿Cómo convertir a una generación que consume pantallas en una que crea con ellas de forma '
+            'segura y crítica?',
+            'Patrimonio. ¿Qué sabe el alumnado del patrimonio que pisa cada día de camino al colegio?',
+            'Dato. PIRLS 2021 (cuarto curso): España, 521 puntos en comprensión lectora, por debajo de la Unión '
+            'Europea (528) y de la OCDE (533); Andalucía, 523.']),
+        2: ('Autor', 'IDEAS', ['Se concretará con los temas.']),
+        3: ('Objetivos de la etapa (artículo 17 de la LOE)', 'IDEAS', [
+            'a) convivencia, ciudadanía y derechos humanos.', 'b) trabajo individual y en equipo, esfuerzo, '
+            'creatividad y espíritu emprendedor.', 'c) resolución pacífica de conflictos.',
+            'd) diversidad cultural e igualdad entre hombres y mujeres.', 'e) lengua castellana y hábitos de lectura.',
+            'f) lengua extranjera.', 'g) competencias matemáticas y resolución de problemas.',
+            'h) ciencias, geografía, historia y cultura.', 'i) competencias tecnológicas y espíritu crítico.',
+            'j) representaciones y expresiones artísticas.', 'k) higiene, salud, deporte y alimentación.',
+            'l) cuidado de los animales.', 'm) afectividad y rechazo de la violencia y los estereotipos.',
+            'n) movilidad activa y educación vial.']),
+        4: ('Áreas', 'IDEAS', ['Siempre dos como mínimo: un área eje y otra conectada.',
+                               'CMN, LCL, MAT, EAR (y VCE solo en sexto).']),
         5: ('Preíndice', 'FIJO', ['Se memoriza tal cual: es igual en todos los supuestos.']),
     },
     '7.2': {
@@ -227,25 +238,41 @@ BOCADILLOS = {
              'Matemáticas. Mejorar la resolución de problemas mediante un modelo común de pasos en todos los ciclos y '
              'comprobar su progreso con una prueba común trimestral.']),
         4: ('Planes y programas (Resolución de 29 de junio de 2026)', 'IDEAS',
-            ['Tipo A. Educación Inclusiva; Plan de Actuación Digital; Bibliotecas Escolares.',
-             'Tipo B. STEM; Vivir y Sentir el Patrimonio; Hábitos de Vida Saludable; Comunica.',
-             'Radio. Red de Radios Escolares de Andalucía (tipo C), siempre junto con Comunica.',
+            ['Tipo A, de oficio. Educación Inclusiva (atención a la diversidad); Plan de Actuación Digital (las '
+             'tecnologías en el aula); Bibliotecas Escolares (lectura y biblioteca).',
+             'Tipo B, a solicitud del centro. STEM (ciencia, tecnología y matemáticas); Vivir y Sentir el Patrimonio; '
+             'Hábitos de Vida Saludable; Comunica (lectura, escritura, oralidad y radio).',
+             'Tipo C, con convocatoria. Red de Radios Escolares de Andalucía, siempre junto con Comunica.',
              'Proyectos ApS, no.']),
         5: ('Sociograma', 'IDEAS',
             ['El grupo está cohesionado y cuenta con líderes positivos.',
              'Se aprecian dos subgrupos que apenas se relacionan.',
              'Un alumno o una alumna apenas recibe elecciones.',
-             'Después, sirve para formar los equipos (4.2.2).']),
+             'Después, sirve para formar los equipos heterogéneos (4.2.2).']),
         6: ('Fortalezas e intereses', 'IDEAS',
             ['Curiosidad por los animales, el deporte o los videojuegos.', 'Buena expresión oral.',
              'Gusto por el trabajo manipulativo y en equipo.']),
     },
     '7.3': {
-        1: ('Autores', 'IDEAS', ['La normativa es casi siempre la misma; los autores marcan la diferencia.',
-                                 'Dos, muy específicos del tema: banco de la Parte II, apartado 3.']),
-        2: ('Normativa fija', 'FIJO', ['Se memoriza: Real Decreto 157/2022, artículo 10.2, y Decreto 101/2023, '
-                                       'artículo 7.3. Sin principios pedagógicos (van en 4.2.2).']),
-        3: ('Instrucción, según el área', 'IDEAS',
+        1: ('Autores', 'IDEAS', ['Dos, muy específicos del tema: se concretarán con los temas.',
+                                 'La normativa es casi siempre la misma; los autores marcan la diferencia.']),
+        2: ('Normativa fija', 'FIJO', [
+            'Artículo 10.2 del Real Decreto 157/2022: el equipo docente planifica situaciones de aprendizaje para '
+            'adquirir las competencias clave y las específicas; el anexo III da orientaciones para diseñarlas.',
+            'Artículo 7.3 del Decreto 101/2023: equipos docentes coordinados y enfoque interdisciplinar, integrador y '
+            'holístico.',
+            'Sin principios pedagógicos: van en 4.2.2.']),
+        3: ('En lugar del 10.2: los retos del siglo XXI (anexo I del Real Decreto 157/2022)', 'IDEAS', [
+            'Actitud responsable ante la degradación del medio ambiente y el maltrato animal.',
+            'Consumo responsable.', 'Estilos de vida saludable.',
+            'Espíritu crítico, empático y proactivo ante la inequidad y la exclusión.',
+            'Resolver los conflictos de manera pacífica.',
+            'Uso ético y responsable de la cultura digital.',
+            'La incertidumbre como oportunidad para dar respuestas creativas.',
+            'Cooperar y convivir valorando la diversidad personal y cultural.',
+            'Sentirse parte de un proyecto colectivo, local y global.',
+            'Seguir aprendiendo a lo largo de la vida.']),
+        4: ('Instrucción, según el área', 'IDEAS',
             ['Lectura. Instrucciones de 21 de junio de 2023, de la Viceconsejería de Desarrollo Educativo y Formación '
              'Profesional, sobre el tratamiento de la lectura para el despliegue de la competencia en comunicación '
              'lingüística en Educación Primaria y Educación Secundaria Obligatoria: tiempo diario de lectura no inferior '
@@ -270,23 +297,31 @@ BOCADILLOS = {
              'Seguimiento quincenal con indicadores: termina la tarea, participa con su rol.']),
         5: ('Espacios', 'IDEAS', ['Del centro: biblioteca escolar, sala de usos múltiples, huerto, carro de portátiles.',
                                   'Del entorno: los del contexto (biblioteca municipal, residencia…).']),
-        6: ('Actividad complementaria', 'IDEAS', ['Visita a la biblioteca municipal, al centro de interpretación o a la '
+        6: ('Los seis criterios pedagógicos (artículo 21.3.c)', 'FIJO', [
+            'Evaluación y promoción del alumnado.', 'Tiempo escolar y extraescolar.', 'Agrupamientos y tutorías.',
+            'Oferta de áreas.', 'Atención a la diversidad y tránsito entre etapas.',
+            'Órganos de coordinación docente.']),
+        7: ('Actividad complementaria', 'IDEAS', ['Visita a la biblioteca municipal, al centro de interpretación o a la '
                                                   'depuradora de la comarca, con autorización de las familias por iPasen.']),
-        7: ('Recurso digital', 'IDEAS', ['Google Classroom, Canva, Book Creator, Genially, Padlet.']),
-        8: ('Cultura andaluza', 'IDEAS', ['Día de Andalucía (28 de febrero); flamenco; modalidad lingüística andaluza; '
+        8: ('Recurso digital', 'IDEAS', ['Google Classroom, Canva, Book Creator, Genially, Padlet.']),
+        9: ('Cultura andaluza', 'IDEAS', ['Día de Andalucía (28 de febrero); flamenco; modalidad lingüística andaluza; '
                                           'patrimonio y leyendas del pueblo.']),
-        9: ('Familias y entorno', 'IDEAS', ['Reunión inicial, iPasen, tutoría de tarde.',
-                                            'La persona delegada de madres y padres difunde el producto; el ayuntamiento '
-                                            'lanza el reto y lo recibe.']),
-        10: ('Protección de datos', 'IDEAS', ['Solo si hay vídeo, fotos o difusión en la web.',
-                                              'Quien no tenga autorización participa con voz en off o con un avatar.']),
-        11: ('Especialistas de área', 'IDEAS', ['Música compone la canción de la campaña; Educación Física organiza una '
+        10: ('Familias y entorno', 'IDEAS', ['Reunión inicial, iPasen, tutoría de tarde.',
+                                             'La persona delegada de madres y padres difunde el producto; el ayuntamiento '
+                                             'lanza el reto y lo recibe.']),
+        11: ('Protección de datos', 'IDEAS', ['Solo si hay vídeo, fotos o difusión en la web.',
+                                              'Quien no tenga autorización participa con voz en off o con un avatar.',
+                                              'Se graba con las tabletas del centro, nunca con móviles personales.']),
+        12: ('Especialistas de área', 'IDEAS', ['Música compone la canción de la campaña; Educación Física organiza una '
                                                 'ruta a pie; Inglés traduce los eslóganes.']),
-        12: ('Proyecto educativo', 'IDEAS', ['Los treinta minutos diarios de lectura, con textos del tema.',
-                                             'Los pasos comunes de resolución de problemas del centro.']),
-        13: ('Servicios complementarios', 'IDEAS', ['En el comedor, el grupo mide el agua que sobra; en el aula matinal, '
+        13: ('Proyecto educativo', 'IDEAS', [
+            'Lectura: treinta minutos diarios con textos del tema, con antes, durante y después.',
+            'Problemas, los siete pasos de las Instrucciones de 18 de junio de 2024: situación cercana y diálogo; '
+            'comprender (datos y pregunta); elegir estrategia; aplicar y calcular; colores; comprobar; comunicar el '
+            'proceso.']),
+        14: ('Servicios complementarios', 'IDEAS', ['En el comedor, el grupo mide el agua que sobra; en el aula matinal, '
                                                     'se juega al juego que ha creado la clase.']),
-        14: ('Proyecto interdisciplinar', 'IDEAS', ['Solo en el tercer ciclo: la hora de autonomía puede dedicarse a '
+        15: ('Proyecto interdisciplinar', 'IDEAS', ['Solo en el tercer ciclo: la hora de autonomía puede dedicarse a '
                                                     'proyectos interdisciplinares.']),
     },
     '7.6': {
@@ -298,39 +333,64 @@ BOCADILLOS = {
         2: ('ODS', 'IDEAS', ['3 Salud y bienestar.', '5 Igualdad de género.', '6 Agua limpia y saneamiento.',
                              '11 Ciudades y comunidades sostenibles.', '12 Producción y consumo responsables.',
                              '13 Acción por el clima.', '16 Paz, justicia e instituciones sólidas.']),
-        3: ('Orden de 30 de mayo de 2023', 'FIJO', ['Se memoriza: es la primera mención de la Orden, con su nombre '
-                                                    'completo.']),
     },
     '7.7': {
-        1: ('Objetivo de etapa (artículo 5 del Decreto 101/2023)', 'IDEAS',
-            ['e) lengua castellana y lectura; g) matemáticas; h) ciencias, historia y patrimonio de Andalucía.',
-             'ñ) modalidad lingüística andaluza; o) patrimonio cultural de Andalucía.']),
-        2: ('Área eje', 'IDEAS', ['Competencia, criterio, saber y dos descriptores: tabla de elementos curriculares.']),
-        3: ('Segunda área', 'IDEAS', ['Solo la competencia específica, resumida en una línea.',
+        1: ('Objetivos de etapa (artículo 5 del Decreto 101/2023)', 'IDEAS', [
+            'Los de la LOE (a a n) y dos propios de Andalucía:',
+            'e) lengua castellana y hábitos de lectura.', 'g) matemáticas y resolución de problemas.',
+            'h) ciencias, historia y cultura, y la riqueza patrimonial de Andalucía.',
+            'ñ) la modalidad lingüística andaluza en todas sus variedades.',
+            'o) el patrimonio cultural de Andalucía, comunidad de encuentro de culturas.']),
+        2: ('Orden de 30 de mayo de 2023', 'FIJO', ['Se memoriza: es su primera mención, con el nombre completo.']),
+        3: ('Área eje', 'IDEAS', ['Competencia, criterio, saber y dos descriptores: tabla de abajo.']),
+        4: ('Segunda área', 'IDEAS', ['Solo la competencia específica, resumida en una línea.',
                                       'Ejemplo. Desde Lengua Castellana y Literatura se desarrolla la competencia '
                                       'específica 5, que persigue producir textos escritos y multimodales coherentes.']),
     },
     '7.8': {
-        1: ('DUA', 'IDEAS', ['Agenda visual de cada sesión.', 'Consignas con pictogramas de ARASAAC.',
-                             'Elegir el formato del producto final.', 'Glosario visual del vocabulario clave.']),
-        2: ('Andalucía', 'IDEAS', ['Día de Andalucía; flamenco; habla andaluza; patrimonio y leyendas del pueblo.']),
-        3: ('Digital', 'IDEAS', ['Kahoot para activar ideas previas; Padlet para compartir hallazgos; Canva o Book '
-                                 'Creator para el producto.']),
-        4: ('Metodología principal y su autor', 'IDEAS',
-            ['Aprendizaje-servicio (Batlle, 2020).', 'Aprendizaje basado en proyectos (Vergara, 2021).',
-             'Aprendizaje basado en retos (Universidad Politécnica de Madrid, 2020).',
-             'Gamificación (Vázquez y Sevillano, 2022).', 'Aula invertida (Rodríguez et al., 2021).']),
-        6: ('Técnicas cooperativas', 'IDEAS',
-            ['Folio giratorio.', '1-2-4.', 'Lápices al centro.', 'Rally coach.', 'Cabezas numeradas.',
-             'Rompecabezas o expertos.', 'Parafraseo por parejas.', 'Roles rotativos.']),
+        1: ('DUA (artículo 6.e)', 'IDEAS', [
+            'Acceso de todo el alumnado al currículo: distintas formas de presentación, metodologías variadas y '
+            'recursos para todos los estilos y ritmos.',
+            'Agenda visual de cada sesión; consignas con pictogramas de ARASAAC; elegir el formato del producto final; '
+            'glosario visual.']),
+        2: ('Andalucía (artículo 6.g)', 'IDEAS', [
+            'Patrimonio cultural y natural, historia, paisajes, folclore, modalidad lingüística andaluza y '
+            'manifestaciones artísticas, como el flamenco.',
+            'Día de Andalucía; flamenco; habla andaluza; patrimonio y leyendas del pueblo.']),
+        3: ('Digital (artículo 6.c)', 'IDEAS', [
+            'Integración y uso de las tecnologías de la información y la comunicación desde todas las áreas.',
+            'Kahoot para activar ideas previas; Padlet para compartir hallazgos; Canva o Book Creator para el producto.']),
+        4: ('Metodología principal', 'IDEAS', [
+            'Aprendizaje-servicio (Batlle, 2020): aprendizaje curricular al servicio de una necesidad real de la '
+            'comunidad; el producto es el servicio.',
+            'Aprendizaje basado en proyectos (Vergara, 2021): investigar un reto real hasta un producto con destinatario.',
+            'Aprendizaje basado en retos (Universidad Politécnica de Madrid, 2020): idea general, pregunta esencial y '
+            'reto.',
+            'Gamificación (Vázquez y Sevillano, 2022): narrativa, misiones, insignias y niveles para implicar.',
+            'Aula invertida (Rodríguez et al., 2021): contenidos antes de clase; en el aula, aplicar.']),
         5: ('Individual y entre iguales', 'IDEAS', ['Individual: lectura, ticket de salida, diario de aprendizaje.',
                                                     'Entre iguales: tutoría entre iguales, «dos aciertos y una '
                                                     'mejora».']),
+        6: ('Técnicas cooperativas', 'IDEAS', [
+            'Folio giratorio: el folio pasa por el equipo y cada uno añade su aportación.',
+            '1-2-4: individual, parejas y equipo hasta una respuesta común.',
+            'Lápices al centro: se debate sin escribir; después cada uno escribe lo acordado.',
+            'Rally coach: por parejas, uno resuelve y el otro entrena; se alternan.',
+            'Cabezas numeradas: tras resolver juntos, el azar decide quién explica.',
+            'Rompecabezas o expertos: cada uno prepara una parte y la explica a su equipo.',
+            'Roles rotativos: portavoz, secretaría, coordinación y tiempo o material.']),
         7: ('Orientaciones del área', 'IDEAS', ['Tres o cuatro palabras de la tabla de abajo.']),
     },
     '7.9': {
-        1: ('Recursos digitales', 'IDEAS', ['Canva o Book Creator (producto), Padlet (hallazgos), Kahoot (ideas '
-                                            'previas), Scratch (programar), Google Classroom (entregas).']),
+        1: ('Materiales', 'IDEAS', [
+            'Manipulativos: regletas, bloques multibase, ábaco, material de medida.',
+            'Impresos y del entorno: prensa, infografías, cartas reales, mural de los pasos de los problemas.',
+            'Espacios: huerto, biblioteca escolar y municipal.']),
+        2: ('Recursos digitales y para qué', 'IDEAS', [
+            'Canva o Book Creator: el producto final.', 'Padlet: muro de hallazgos.',
+            'Kahoot o Mentimeter: ideas previas y repaso.', 'Genially: presentaciones interactivas.',
+            'GeoGebra: geometría.', 'Scratch: programar.', 'ARASAAC y Lector inmersivo: accesibilidad.',
+            'Google Classroom: entregas y difusión.']),
     },
 }
 
