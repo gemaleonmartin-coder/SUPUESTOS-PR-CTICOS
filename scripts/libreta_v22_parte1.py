@@ -54,7 +54,7 @@ COMENTARIOS = {
     '62e': 'Antes: «Decreto 101/2023, artículos 6 y 7». Ahora: artículo 6 con sus tres principios fijos, 7.2 y el anexo II '
            'de la Orden (orientaciones metodológicas del área).',
     '62f': 'Antes: «cinco o seis normas». Ahora: «seis o siete», por la instrucción y el Decreto 483/2026.',
-    '71a': 'Antes: «130 palabras · 6 min · 4 párrafos». Ahora: unas 165 y 5 párrafos, por el preíndice. Decisión de Gem (20/11/2026): se aceptan unas 2.600 palabras en total (unos 5 minutos más de escritura).',
+    '71a': 'Antes: «130 palabras · 6 min · 4 párrafos». Ahora: unas 165 y 5 párrafos, por el preíndice. Decisión de Gem (20/11/2026): se aceptan unas 2.600 palabras en total, en los mismos 110 minutos de redacción (ritmo de 23-24 palabras por minuto).',
     '71b': 'Nuevo: el preíndice (corrección de Gem: faltaba).',
     '71c': 'Antes: «cuatro movimientos». Ahora: cinco, con el preíndice.',
     '71d': 'Antes: «Anunciar el índice … → Suprimirlo: no puntúa». Ahora lo contrario: el preíndice es obligatorio (Gem).',
@@ -82,7 +82,7 @@ COMENTARIOS = {
     '73i': 'Fila nueva: los principios pedagógicos no van aquí (Gem: si se explican aquí, no se pueden relacionar luego con '
            'la metodología).',
     '75a': 'Antes: «230 palabras · 10 min · 4 movimientos». Ahora: unas 275 los bloques fijos, por los nombres '
-           'completos de los dos decretos, y 5 movimientos. Decisión de Gem (20/11/2026): se aceptan unas 2.600 palabras en total (unos 5 minutos más de escritura).',
+           'completos de los dos decretos, y 5 movimientos. Decisión de Gem (20/11/2026): se aceptan unas 2.600 palabras en total, en los mismos 110 minutos de redacción (ritmo de 23-24 palabras por minuto).',
     '75b': 'Antes: «Origen de la propuesta en un documento del centro, coherente con el contexto». Ahora: la línea o el '
            'objetivo solo se citan (Gem: van arriba, en el contexto).',
     '75c': 'Antes: «equipo de ciclo, equipo docente y equipo de orientación o especialista». Ahora: el equipo técnico en '
@@ -102,7 +102,7 @@ COMENTARIOS = {
     '75m': 'Antes: «En el modelo estándar se omite la frase del agente externo o la del trámite…». Ahora: la regla de los '
            'bloques.',
     '76a': 'Antes: «90 palabras · 4 min · 1 párrafo de 3 frases». Ahora: unas 105 y 4 frases, con el ODS. La Orden '
-           'se queda en la concreción curricular (Gem: se cita después). Decisión de Gem (20/11/2026): se aceptan unas 2.600 palabras en total (unos 5 minutos más de escritura).',
+           'se queda en la concreción curricular (Gem: se cita después). Decisión de Gem (20/11/2026): se aceptan unas 2.600 palabras en total, en los mismos 110 minutos de redacción (ritmo de 23-24 palabras por minuto).',
     '76b': 'Nuevo: la cuarta frase, con el ODS (Gem). La Orden no se cita aquí porque se presenta en la concreción.',
     '76c': 'Antes: «vínculo con el principio pedagógico anunciado en 3». Ahora no: los principios ya no se anuncian en 3.',
     '76d': 'Fila nueva.',
@@ -228,7 +228,7 @@ p('Cada ficha recoge: finalidad, extensión, criterio que atiende, contenido (ob
 h2('7.1. Introducción')
 ficha('**Demostrar en diez líneas que se ha entendido el enunciado, que el tema importa y qué se va a proponer. Primera '
       'impresión sobre la expresión escrita**',
-      '<<165 palabras · 7 min · 5 párrafos>>{#71a}', 'C1 (indicador 1: importancia del supuesto), C10, C13')
+      '<<165 palabras>>{#71a} · 6 min · <<5 párrafos>>{#71a}', 'C1 (indicador 1: importancia del supuesto), C10, C13')
 sub('Contenido obligatorio')
 bul('Importancia social y educativa del tema, con las palabras clave del enunciado.',
     'Un respaldo de autor o de informe verificado.',
@@ -333,7 +333,7 @@ h2('7.5. Intervención a nivel de centro (coordinación docente)')
 ficha('**Responder a la parte «organizativa»: la propuesta nace de los documentos del centro, varios órganos intervienen '
       'con una función concreta y hay cauces y calendario de coordinación. El tribunal valora que el funcionamiento sea el '
       'real de un colegio andaluz**',
-      '<<275 palabras los bloques fijos (300 con un bloque según el supuesto) · 13 min · 5 movimientos>>{#75a}', 'Convocatoria («organizativa»); C8 (cauces de coordinación); C2 secundario')
+      '<<275 palabras los bloques fijos (300 con un bloque según el supuesto)>>{#75a} · 10 min · <<5 movimientos>>{#75a}', 'Convocatoria («organizativa»); C8 (cauces de coordinación); C2 secundario')
 sub('Contenido obligatorio')
 bul('Origen de la propuesta en un documento del centro, coherente con el contexto<<: la línea general de actuación '
     'pedagógica o el objetivo general de mejora ya descritos en 2 solo se citan>>{#75b}.',
@@ -384,7 +384,7 @@ p('<<En el modelo estándar se escriben los bloques fijos y, de los bloques seg�
 # 7.6 -------------------------------------------------------------------------------------------------------------
 h2('7.6. Intervención a nivel de aula: datos identificativos (transición)')
 ficha('**Presentar la situación de aprendizaje de un vistazo antes de desarrollarla: ubicarla en el tiempo y precisar las '
-      'áreas**', '<<105 palabras · 5 min · 1 párrafo de 4 frases>>{#76a}', 'C4 (temporalización); C2 secundario')
+      'áreas**', '<<105 palabras>>{#76a} · 4 min · 1 párrafo de <<4 frases>>{#76a}', 'C4 (temporalización); C2 secundario')
 p('Si el enunciado no dice curso, se elige aquí y se declara una sola vez; todo el currículo se toma de ese curso.')
 p('Los siete datos, en este orden: (1) título; (2) curso y ciclo; (3) área eje y áreas conectadas; (4) trimestre y, si '
   'procede, efeméride; (5) duración en sesiones y semanas; (6) producto final y destinatario; (7) reto de partida con las '
@@ -554,6 +554,7 @@ class Libreta(PB.Constructor):
         super().__init__()
         self.revision = revision
         self.pendientes_com = []      # (lista de elementos w:r, texto)
+        self.claves_usadas = set()
         s = self.d.sections[0]
         s.left_margin = s.right_margin = Cm(1.8)
         h = s.header.paragraphs[0]
@@ -611,7 +612,9 @@ class Libreta(PB.Constructor):
                 j = i
                 while j + 1 < len(rs) and claves[j + 1] == claves[i]:
                     j += 1
-                self.pendientes_com.append((rs[i], rs[j], el, COMENTARIOS[claves[i]]))
+                if claves[i] not in self.claves_usadas:      # un comentario por cambio, en su primera aparición
+                    self.claves_usadas.add(claves[i])
+                    self.pendientes_com.append((rs[i], rs[j], el, COMENTARIOS[claves[i]]))
                 i = j + 1
             else:
                 i += 1
