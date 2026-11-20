@@ -62,8 +62,7 @@ COMENTARIOS = {
     'p23a': 'Antes: «Comunica (lectura, escritura, oralidad, radio escolar, alfabetización mediática)». Ahora: con la radio '
             'siempre unida a Comunica (Gem).',
     'p23b': 'Fila nueva: la Red de Radios Escolares de Andalucía (Resolución de 29 de junio de 2026, tipo C).',
-    'p23c': 'Antes: Proyectos ApS como programa para T6c. Ahora: no se usa en el contexto (Gem: «APS no vale»), aunque '
-            'figura en la Resolución.',
+    'p23c': 'Antes: Proyectos ApS como programa para T6c. Ahora se quita: todavía no está aprobado (Gem).',
     'p31a': 'Antes: «3.1. Decreto 101/2023, artículo 6: principios pedagógicos». Ahora: la normativa fija del apartado 3 '
             '(Gem: 10.2 del Real Decreto con el 7.3 del Decreto 101/2023, o los retos del anexo I). La tabla de los '
             'principios pasa a 4.2.2, a).',
@@ -74,6 +73,12 @@ COMENTARIOS = {
             'conservan para otros apartados. Bibliotecas: las de 10 de septiembre de 2025 (las de 2013 están '
             'sustituidas).',
     'p32b': 'Nuevo: dónde se cita cada norma, porque ya no va como tercera norma del apartado 3.',
+    'p32c': 'Antes: «Instrucciones de 10 de septiembre de 2025, de la Dirección General de Innovación y Formación del '
+            'Profesorado…» [POR COMPROBAR]. Ahora: como las cita el BOJA (sin el órgano, que no se ha podido comprobar) y, '
+            'como en la programación de Gem, el programa Bibliotecas Escolares y el Plan de Fomento de la Lectura 2026-2030.',
+    'pt1i': 'Antes: «Origen en el proyecto de centro o en una línea de actuación; … familias». Ahora: con el nombre del '
+            'Decreto 483/2026, los criterios pedagógicos y las familias solo si el supuesto lo pide.',
+    'p43a': 'Antes: «en coherencia con la línea de actuación señalada». Ahora: con el nombre del Decreto 483/2026.',
     'p33a': 'Antes: «6: principios pedagógicos» sin destino. Ahora: van en 4.2.2.',
     'p41a': 'Antes: «a) objetivos de mejora; b) líneas generales de actuación pedagógica; c) criterios pedagógicos, entre '
             'ellos las medidas organizativas de diversidad». Ahora: los nombres completos y los seis criterios '
@@ -145,7 +150,7 @@ COMENTARIOS = {
             'Reglamento, en 4.1.',
     'pt6a': 'Antes: «Decreto 328/2010, 21.3.b) y f)». Ahora con el nombre de la letra b) y del plan de formación.',
     'pt6b': 'Antes: «Decreto 101/2023, 7.2 …». Ahora: normativa fija e instrucción; el 7.2, en 4.2.2.',
-    'pt6c': 'Antes: «programa afín (Proyectos ApS, …)». Ahora sin Proyectos ApS (Gem).',
+    'pt6c': 'Antes: «programa afín (Proyectos ApS, …)». Ahora sin Proyectos ApS: todavía no está aprobado (Gem).',
     'pt6d': 'Antes: «diana cooperativa por roles». Ahora: escala de coevaluación por roles (sin diana, Gem).',
     'p4nota': 'Secciones de la lista de verificación que cambian, enteras para poder repasarlas.',
     'c1a': 'Antes: «línea de actuación». Ahora: los nombres del Decreto 483/2026 y el sociograma.',
@@ -219,9 +224,10 @@ h2('4.2. Cadena de dependencias')
 tabla(['Dato que se fija en 2 (o en el enunciado)', 'Condiciona en 3', 'Condiciona en 4.1', 'Condiciona en 4.2'], [
     ['Problemática del grupo (por ejemplo, baja comprensión lectora en la evaluación inicial)',
      '<<Instrucción del área>>{#r42a} y autor de didáctica del área',
-     'Origen: memoria de autoevaluación, <<objetivo general de mejora>>{#r42b}, acuerdo de ciclo',
+     'Origen: memoria de autoevaluación, <<objetivo general destinado a la mejora del rendimiento escolar y de la '
+     'calidad educativa del centro>>{#r42b}, acuerdo de ciclo',
      'Competencia y criterio (4.2.1); producto (4.2.3); evidencia e instrumento con comparación inicial-final (4.2.5)'],
-    ['Línea general de actuación pedagógica', '<<—>>{#r42c}', 'Documento del que parte la propuesta',
+    ['<<Línea general de actuación pedagógica y de concreción curricular>>{#r42b}', '<<—>>{#r42c}', 'Documento del que parte la propuesta',
      'Metodología principal <<y principio pedagógico que la respalda>>{#r42c} (4.2.2)'],
     ['Plan o programa del centro', '—', 'Persona coordinadora y recurso que aporta',
      'Recurso o espacio de una actividad (4.2.3)'],
@@ -235,6 +241,12 @@ tabla(['Dato que se fija en 2 (o en el enunciado)', 'Condiciona en 3', 'Condicio
      'Equipo de orientación y especialistas: cauce, calendario, acuerdos',
      'Ajustes en actividades (4.2.3); medidas (4.2.4); evaluación de las medidas (4.2.5)'],
 ], [4.6, 3.6, 4.4, 4.8])
+
+h2('4.3. Recursos de redacción que hacen visible la coherencia (viñeta que cambia)')
+nota('Sustituye a la segunda viñeta del 4.3 de la página 11.')
+bul('**Remisiones internas breves**: «como se indicó en el contexto», <<«en coherencia con las líneas generales de '
+    'actuación pedagógica y la concreción curricular señaladas»>>{#p43a}, «criterio ya citado en la concreción '
+    'curricular».')
 
 # 7.13 -----------------------------------------------------------------------------------------------------------
 B.append(('apartados_6_a_79', None))       # aquí entran, enteros, los apartados 6 a 7.9 ya rehechos
@@ -292,9 +304,9 @@ tabla(['Pieza', 'Frase'], [
     ['Entorno', '«El centro se ubica en [localidad] de [provincia], con un nivel socioeconómico y cultural [nivel] y '
                 '[grado] de participación de las familias, y dispone de <<[recursos del entorno: biblioteca municipal, '
                 'talleres gratuitos, residencia de mayores]>>{#p21a}, que se aprovecharán en la propuesta.»'],
-    ['Centro', '<<«Su proyecto educativo recoge, entre sus líneas generales de actuación pedagógica, [línea en infinitivo] '
-               'y, entre sus objetivos generales destinados a la mejora del rendimiento escolar y de la calidad educativa, '
-               '[objetivo], fijado a raíz de la última memoria de autoevaluación.»>>{#p21b}'],
+    ['Centro', '<<«Su proyecto educativo recoge, entre sus líneas generales de actuación pedagógica y la concreción '
+               'curricular, [línea en infinitivo] y, entre sus objetivos generales destinados a la mejora del rendimiento '
+               'escolar y de la calidad educativa del centro, [objetivo], fijado a raíz de la última memoria de autoevaluación.»>>{#p21b}'],
     ['Alumnado', '<<«Según la evaluación inicial y el sociograma, [cohesión del grupo], destaca por [fortaleza] y presenta '
                  'dificultades en [aspecto], que justifican la presente propuesta.»>>{#p21c}'],
     ['Puente', '«Su respuesta educativa se concreta en el apartado 4.2.4.»'],
@@ -311,9 +323,10 @@ tabla(['Pieza', 'Frase'], [
                             'atención educativa en los colegios públicos rurales (2022), que subraya sus retos y '
                             'oportunidades.» (sin cifras del informe)'],
 ], [4.6, 12.8])
-h2('2.2. Líneas generales de actuación pedagógica y objetivos generales de mejora (en infinitivo, inventables)')
+h2('<<2.2. Líneas generales de actuación pedagógica y la concreción curricular y objetivos generales destinados a la '
+   'mejora del rendimiento escolar y de la calidad educativa del centro (en infinitivo, inventables)>>{#p22c}')
 nota('Sustituye al 2.2 de las páginas 26 y 27.')
-h3('Líneas generales de actuación pedagógica')
+h3('<<Líneas generales de actuación pedagógica y la concreción curricular>>{#p22c}')
 bul('<<Situar al alumnado como protagonista de su aprendizaje mediante metodologías activas que potencien la '
     'colaboración.>>{#p22a}',
     '<<Flexibilizar la respuesta educativa para adaptarla a la diversidad de aptitudes, intereses y necesidades del '
@@ -324,13 +337,13 @@ bul('<<Situar al alumnado como protagonista de su aprendizaje mediante metodolog
     'comunicar hallazgos.>>{#p22a}',
     'Desarrollar el hábito lector diario.', 'Promover la resolución de problemas con material visual y manipulativo.',
     'Acercar al alumnado a la cultura andaluza.', 'Conseguir el compromiso del alumnado con el cuidado del medio ambiente.')
-h3('<<Objetivos generales destinados a la mejora del rendimiento escolar y de la calidad educativa>>{#p22b}')
+h3('<<Objetivos generales destinados a la mejora del rendimiento escolar y de la calidad educativa del centro>>{#p22b}')
 bul('<<Lengua. Mejorar la comprensión lectora inferencial mediante el tiempo diario de lectura planificada y comprobar su '
     'progreso con una prueba común trimestral.>>{#p22b}',
     '<<Matemáticas. Mejorar la resolución de problemas mediante un modelo común de pasos en todos los ciclos y comprobar su '
     'progreso con una prueba común trimestral.>>{#p22b}')
 p('Base: Decreto 328/2010, artículo 21.3, letras <<a) (objetivos generales destinados a la mejora del rendimiento escolar '
-  'y de la calidad educativa) y b) (líneas generales de actuación pedagógica y concreción curricular)>>{#p22c}, en la '
+  'y de la calidad educativa del centro) y b) (líneas generales de actuación pedagógica y la concreción curricular)>>{#p22c}, en la '
   'redacción de 2026. No se usan las siglas antiguas (LGAP, OMRE).')
 h2('2.3. Programas educativos del curso 2026/2027 (filas que cambian)')
 nota('Sustituyen a las filas correspondientes de la tabla 2.3 de la página 27; las demás filas siguen igual.')
@@ -339,8 +352,8 @@ tabla(['Utilidad', 'Programa', 'Procedimiento', 'Para qué tipo'], [
           'Radios Escolares de Andalucía>>{#p23a}', 'Solicitud del centro', 'T2a, T2c, T2d, T1d'],
     ['<<◆>>{#p23b}', '<<Red de Radios Escolares de Andalucía, siempre junto con Comunica>>{#p23b}',
      '<<Convocatoria específica>>{#p23b}', '<<T2c, T1d>>{#p23b}'],
-    ['<<—>>{#p23c}', '<<Proyectos ApS: no se usa en el contexto>>{#p23c}', 'Convocatoria específica', '<<—>>{#p23c}'],
 ], [1.8, 8.6, 3.6, 3.4])
+nota('<<Se elimina la fila «◆ Proyectos ApS · Convocatoria específica · T6c»: todavía no está aprobado.>>{#p23c}')
 
 h2('3.1. Normativa fija del apartado 3 ★')
 nota('<<Sustituye al 3.1 de la página 29 (la tabla de los principios pedagógicos pasa a 4.2.2, a).>>{#p31a}')
@@ -381,11 +394,12 @@ tabla(['Área o tema', 'Instrucción', 'Qué establece (para la frase «que esta
                                                 'Secundaria Obligatoria',
      'Itinerario de problemas por etapa; método común de resolución acordado en el centro (de lo corporal a lo oral y a lo '
      'simbólico); tiempo para leer y comprender enunciados; coordinación del equipo técnico'],
-    ['◆ Biblioteca', 'Instrucciones de 10 de septiembre de 2025, de la Dirección General de Innovación y Formación del '
-                     'Profesorado, sobre la organización y funcionamiento de las bibliotecas escolares !![POR COMPROBAR: '
-                     'título completo]!!',
+    ['◆ Biblioteca', '<<Instrucciones de 10 de septiembre de 2025, sobre la organización y funcionamiento de las '
+                     'bibliotecas escolares (así las cita el BOJA n.º 57, de 24 de marzo de 2026)>>{#p32c}',
      'Biblioteca como recurso estratégico para la mediación lectora, la alfabetización mediática e informacional, la '
-     'inclusión y la dinamización cultural'],
+     'inclusión y la dinamización cultural. <<Como en la programación: el programa Bibliotecas Escolares, de oficio '
+     '(Resolución de 29 de junio de 2026), y el Plan de Fomento de la Lectura 2026-2030 (Ministerio de Cultura, 2026), '
+     'leer mejor y no solo más, contando con las familias>>{#p32c}'],
 ], [3.6, 7.0, 6.8])
 h3('<<b) Otras normas por tema: no sustituyen a la instrucción; se citan en el apartado que se indica>>{#p32b}')
 tabla(['Tema', 'Norma', 'Qué establece', 'Dónde se cita'], [
@@ -478,8 +492,8 @@ h2('4.1. Intervención a nivel de centro (filas que cambian)')
 nota('b) Documentos del centro, página 37: fila «Proyecto educativo». e) Frases de 4.1, páginas 38 y 39: la tabla entera.')
 tabla(['Documento', 'Base', 'Uso'], [
     ['Proyecto educativo ★', '<<Decreto 328/2010, artículos 20 y 21.3 (redacción del Decreto 483/2026): a) objetivos '
-                             'generales destinados a la mejora del rendimiento escolar y de la calidad educativa; b) líneas '
-                             'generales de actuación pedagógica y concreción curricular; c) criterios pedagógicos que sirven '
+                             'generales destinados a la mejora del rendimiento escolar y de la calidad educativa del centro; '
+                             'b) líneas generales de actuación pedagógica y la concreción curricular; c) criterios pedagógicos que sirven '
                              'de base para la evaluación y la promoción, el tiempo escolar y extraescolar, los agrupamientos '
                              'y las tutorías, la oferta de áreas, las medidas organizativas de atención a la diversidad y el '
                              'tránsito, y los órganos de coordinación docente; d) plan de orientación y acción tutorial; e) '
@@ -491,8 +505,9 @@ tabla(['Pieza', 'Frase'], [
     ['★ Entrada', '«La intervención se articula en dos niveles: el de centro, de carácter organizativo, y el de aula, que '
                   'se concreta en una situación de aprendizaje.»'],
     ['Origen', '«La propuesta nace de [necesidad] detectada en [memoria de autoevaluación o evaluación inicial] y se '
-               'vincula con <<[la línea general de actuación pedagógica o el objetivo general de mejora]>>{#p41b} del '
-               'proyecto educativo.»'],
+               'vincula con <<[la línea general de actuación pedagógica y de concreción curricular o el objetivo general '
+               'destinado a la mejora del rendimiento escolar y de la calidad educativa del centro]>>{#p41b} del proyecto '
+               'educativo.»'],
     ['★ Sentido descendente', '«El equipo técnico de coordinación pedagógica acordó [línea de centro], que cada equipo de '
                               'ciclo concreta para su alumnado.»'],
     ['Ciclo', '«En el equipo de ciclo se acuerdan el producto final común, el reparto de sesiones entre áreas y una '
@@ -530,7 +545,8 @@ bul('Definición: el Decreto 101/2023, artículo 7.1, define la situación de ap
     '«Se desarrolla durante el [trimestre], a lo largo de [n.º] sesiones, coincidiendo con [efeméride].»',
     '«Parte del reto de [reto] y culmina en [producto], que se presentará a [destinatario].»',
     '<<★ «La situación conecta con los intereses del alumnado y con el Objetivo de Desarrollo Sostenible (ODS) [número y '
-    'nombre], y da continuidad a [la línea o el objetivo de mejora del contexto].»>>{#p42a}',
+    'nombre], y da continuidad a [la línea general de actuación pedagógica y de concreción curricular o el objetivo '
+    'general destinado a la mejora del rendimiento escolar y de la calidad educativa del centro].»>>{#p42a}',
     'Variante T2 y T5: «Esta situación de aprendizaje forma parte de [plan de lectura, itinerario de problemas o proyecto '
     'de centro] que se desarrolla a lo largo del curso.»',
     'Temporalización realista: veinticinco sesiones semanales con el recreo (Orden de 30 de mayo de 2023, artículo 8.1); '
@@ -695,11 +711,16 @@ p('Heteroevaluación (rúbrica, escala, registro) · coevaluación (escala del t
   'metacognición o semáforo>>{#p425d}; imprescindible).')
 
 h2('7. Recursos transversales de redacción (filas que cambian)')
-nota('7.1, fila E4 (página 58); 7.3, fila «Anunciar el índice» (página 59).')
+nota('7.1, fila E4 (página 58); 7.2, fila «Remisión interna», y 7.3, fila «Anunciar el índice» (página 59).')
 tabla(['N.º', 'Estructura', 'Apartado'], [
     ['E4', '<<Siete datos en tres frases (identificar, situar, dar sentido) y una cuarta con el ODS y la continuidad con '
            'el contexto>>{#p71a}', '4.2'],
 ], [1.6, 13.0, 2.8])
+tabla(['Función', 'Conectores'], [
+    ['◆ Remisión interna', 'Como se indicó en el contexto · <<En coherencia con las líneas generales de actuación '
+                           'pedagógica y la concreción curricular señaladas>>{#p43a} · Criterio ya citado en la concreción '
+                           'curricular'],
+], [4.2, 13.2])
 tabla(['Evitar', 'Usar'], [
     ['<<Olvidar el preíndice o alargarlo>>{#p73a}', '<<Una o dos frases que recorren los apartados>>{#p73a}'],
 ], [8.7, 8.7])
@@ -707,8 +728,8 @@ tabla(['Evitar', 'Usar'], [
 # ===============================================================================================================
 parte('Parte III. Fichas por tipo de supuesto (filas que cambian)')
 clave('<<**Lo que cambia en todas las fichas.** En el apartado 2, los nombres del Decreto 483/2026 (líneas generales de '
-      'actuación pedagógica; objetivos generales destinados a la mejora del rendimiento escolar y de la calidad '
-      'educativa) y el sociograma. En el 3, la normativa fija (artículo 10.2 del Real Decreto 157/2022 y 7.3 del Decreto '
+      'actuación pedagógica y la concreción curricular; objetivos generales destinados a la mejora del rendimiento '
+      'escolar y de la calidad educativa del centro) y el sociograma. En el 3, la normativa fija (artículo 10.2 del Real Decreto 157/2022 y 7.3 del Decreto '
       '101/2023) y la instrucción del área; la norma propia de cada familia pasa al apartado que se indica y los principios '
       'pedagógicos, a 4.2.2. En 4.2, el ODS. En 4.2.1, dos áreas. En 4.2.2, el DUA, Andalucía y lo digital, y las '
       'orientaciones del área. En 4.2.3, materiales, formatos y recursos digitales al final de las actividades. En 4.2.5, '
@@ -726,12 +747,16 @@ tabla(['Apartado', 'T1', 'T2', 'T3', 'T4', 'T5', 'T6'], [
 h2('T1. Propuesta didáctica sobre una temática (filas que cambian)')
 nota('Tabla «Qué poner en cada apartado» de las páginas 64 y 65; las demás filas siguen igual.')
 tabla(['Apartado', 'Qué poner', 'Normas y autores'], [
-    ['2', 'Recurso del entorno que se usará; <<línea general de actuación pedagógica u objetivo general de mejora, '
+    ['2', 'Recurso del entorno que se usará; <<línea general de actuación pedagógica y de concreción curricular u objetivo '
+          'general destinado a la mejora del rendimiento escolar y de la calidad educativa del centro, '
           'sociograma>>{#pt1a} y programa del subtipo; interés y dificultad del grupo ligados al tema; un perfil',
      '<<Solo se nombran: la norma se cita en 4.1>>{#pt1a}'],
     ['3', 'Autor de didáctica del área + autor del enfoque, <<muy específicos del subtipo>>{#pt1b}; psicoevolutivo '
           'aplicado a una tarea; <<normativa fija e instrucción del área>>{#pt1b}',
      '<<Real Decreto 157/2022, 10.2; Decreto 101/2023, 7.3; instrucción del área>>{#pt1b}'],
+    ['4.1', 'Origen en el proyecto de centro o en <<una línea general de actuación pedagógica y de concreción '
+            'curricular>>{#pt1i}; ciclo (producto, calendario, rúbrica); reserva de espacio; criterios pedagógicos; agente '
+            'externo; familias si el supuesto lo pide', 'Decreto 328/2010, artículos 79-83, 24.2; 81.f) si hay salida'],
     ['4.2', 'Título con el reto; áreas del enunciado; trimestre y efeméride; 12 sesiones; producto y destinatario<<; '
             'ODS>>{#pt1c}', 'Decreto 101/2023, artículo 7.1'],
     ['4.2.2', '<<Principios fijos (DUA, Andalucía y digital) con ejemplo; proyectos o indagación; cooperativo con técnicas; '
@@ -754,9 +779,11 @@ tabla(['Error', 'Corrección'], [
 h2('T2. Mejora de una competencia instrumental (filas que cambian)')
 nota('Tabla de las páginas 66 y 67.')
 tabla(['Apartado', 'Lectura (T2a) y oralidad o escritura (T2c, T2d)', 'Resolución de problemas (T2b)'], [
-    ['2', 'Dato de la evaluación inicial o de la memoria de autoevaluación; <<objetivo general de mejora>>{#pt2a}; '
+    ['2', 'Dato de la evaluación inicial o de la memoria de autoevaluación; <<objetivo general destinado a la mejora del '
+          'rendimiento escolar y de la calidad educativa del centro>>{#pt2a}; '
           'Bibliotecas Escolares o Comunica; en T2d, el entorno como corpus de textos; grupo en tres perfiles de desempeño',
-     'Dato de la evaluación inicial; <<objetivo general de mejora>>{#pt2a}; STEM o aulaDjaque; itinerario de problemas'],
+     'Dato de la evaluación inicial; <<objetivo general destinado a la mejora del rendimiento escolar y de la calidad '
+     'educativa del centro>>{#pt2a}; STEM o aulaDjaque; itinerario de problemas'],
     ['3', '<<Normativa fija +>>{#pt2b} Instrucciones de lectura (30 minutos diarios; antes, durante y después; literal, '
           'inferencial y crítica; cinco ejes); en T2d, proceso de escritura (Cassany, 1989)',
      '<<Normativa fija +>>{#pt2b} Instrucciones de 18 de junio de 2024 (itinerario; método común; de lo corporal a lo '
@@ -789,7 +816,8 @@ tabla(['Apartado', 'Qué poner', 'Normas y autores'], [
 h2('T5. Organizativo o de centro (filas que cambian)')
 nota('Tabla de las páginas 73 y 74.')
 tabla(['Apartado', 'Qué poner', 'Normas y autores'], [
-    ['2', 'Tamaño del centro y unidades; <<líneas generales de actuación pedagógica, objetivos generales de mejora,>>{#pt5a} '
+    ['2', 'Tamaño del centro y unidades; <<líneas generales de actuación pedagógica y la concreción curricular, objetivos '
+          'generales destinados a la mejora del rendimiento escolar y de la calidad educativa del centro,>>{#pt5a} '
           'planes y programas; recursos y espacios; en T5a, agrupamiento y ratio (LOE, 157.1.a: 25; 87.2: hasta un 10 % '
           'más)', '<<Solo se nombran: la norma se cita en 4.1>>{#pt5a}'],
     ['3', 'Antúnez (1987) o Bolívar (2000); Zabala y Arnau (2007); <<normativa fija e instrucción del área (el Reglamento '
@@ -804,11 +832,12 @@ tabla(['Subtipo', 'Evaluación propia'], [
 ], [5.0, 12.4])
 tabla(['Apartado', 'Qué poner', 'Normas y autores'], [
     ['2', 'La metodología en las líneas del centro o en su plan de formación; recurso disponible',
-     '<<Decreto 328/2010, 21.3.b) (líneas generales de actuación pedagógica) y f) (plan de formación)>>{#pt6a}'],
+     '<<Decreto 328/2010, 21.3.b) (líneas generales de actuación pedagógica y la concreción curricular) y f) (plan de '
+     'formación)>>{#pt6a}'],
     ['3', 'Autor de la metodología; <<normativa fija e instrucción del área (el 7.2, en 4.2.2)>>{#pt6b}; en T6b, definición '
           'de la competencia digital', '<<Real Decreto 157/2022, 10.2; Decreto 101/2023, 7.3; instrucción del área;>>{#pt6b} '
                                        'Real Decreto 157/2022, anexo I'],
-    ['4.1', 'Línea general de actuación pedagógica o plan de formación; acuerdo de ciclo sobre roles, estructuras o '
+    ['4.1', '<<Línea general de actuación pedagógica y de concreción curricular>>{#pt6a} o plan de formación; acuerdo de ciclo sobre roles, estructuras o '
             'recompensas; programa afín (<<Emprendimiento Educativo, Escuela Código 4.0, Plan de Actuación '
             'Digital>>{#pt6c}); en T6e, calendario de uso, responsable y reglamento de organización y funcionamiento; '
             'autorizaciones de imagen', 'Decreto 328/2010, 81.g) y 24.2; Ley Orgánica 3/2018, 7'],
@@ -824,8 +853,9 @@ check('Palabras clave del enunciado subrayadas (verbos y objetos de la demanda).
       'anotados (T5b o T5e).', 'Curso elegido y declarado si el enunciado no lo fija.',
       'Reto y producto final con destinatario real.', 'Cinco actividades, una por fase, y suma de sesiones anotada.',
       'Competencia específica, criterio de evaluación, saberes y dos descriptores anotados.',
-      'Contexto a medida: recurso del entorno, <<línea general de actuación pedagógica u objetivo general de mejora, '
-      'programa, sociograma>>{#c1a}, perfil.',
+      'Contexto a medida: recurso del entorno, <<línea general de actuación pedagógica y de concreción curricular u '
+      'objetivo general destinado a la mejora del rendimiento escolar y de la calidad educativa del centro, programa, '
+      'sociograma>>{#c1a}, perfil.',
       'Autores (tres o cuatro) y normas (<<seis o siete>>{#c1b}) anotados para el apartado 6.')
 h2('3. Apartados 1 a 3')
 h3('1. Introducción')
@@ -836,7 +866,8 @@ check('Gancho con al menos tres palabras clave literales del enunciado.',
       '<<Preíndice en una o dos frases;>>{#c1c} sin cifras ni citas dudosas.')
 h3('2. Contexto')
 check('Tres párrafos: entorno, centro y alumnado.', 'Nada contradice el enunciado.',
-      '<<Línea general de actuación pedagógica y objetivo general de mejora del proyecto educativo, en infinitivo y sin '
+      '<<Una de las líneas generales de actuación pedagógica y la concreción curricular y uno de los objetivos generales '
+      'destinados a la mejora del rendimiento escolar y de la calidad educativa del centro, en infinitivo y sin '
       'siglas.>>{#c1e}', 'Programa del curso vigente con su nombre exacto.',
       'Alumnado: fortaleza, dificultad ligada al tema, <<sociograma>>{#c1d} y fuente del dato (evaluación inicial).',
       'Perfil o perfiles descritos por necesidad y fortaleza; frase puente a 4.2.4.',

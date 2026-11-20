@@ -114,14 +114,15 @@ COMENTARIOS = {
            'final de las actividades de la secuencia, como los recursos digitales (Gem: ese párrafo ya se reubicó).',
     '78b': 'Antes: «dos o tres, cada uno con su ejemplo». Ahora: siempre el DUA, Andalucía y lo digital (Gem).',
     '78c': 'Nuevo: técnicas cooperativas concretas (en el Word de plantillas, bocadillo con las técnicas).',
-    '78d': 'Antes: «Enfoque integrador, interdisciplinar y holístico: qué aporta cada área». Ahora se acredita en 3 y el '
-           'párrafo de la plantilla queda marcado para reubicar (Gem).',
+    '78d': 'Antes: «Enfoque integrador, interdisciplinar y holístico: qué aporta cada área». Ahora se acredita en 3, con '
+           'el 7.3, y su párrafo sale de la plantilla (Gem).',
     '78e': 'Antes: «Recursos tecnológicos e innovadores con finalidad didáctica». Ahora: con el principio c) y al final de '
            'las actividades del 4.2.3 (Gem).',
     '78f': 'Nuevo: las orientaciones metodológicas de cada área, último bloque (Gem). Están en el anexo II de la Orden '
            '(introducción de cada área), no en el III: el III es la vinculación de objetivos y descriptores; las páginas '
            'del BOJA llevan la cabecera «ANEXO II y III».',
-    '78g': 'Antes: «…; conexión con la realidad andaluza; …». Ahora es obligatoria (principio g).',
+    '78g': 'Antes: «…; conexión con la realidad andaluza; coherencia con la línea de actuación del contexto; …». Ahora '
+           'la conexión con Andalucía es obligatoria (principio g) y la línea lleva el nombre del Decreto 483/2026.',
     '78h': 'Antes: «(4) interdisciplinariedad; (5) recursos materiales, tecnológicos y de accesibilidad». Ahora: las '
            'orientaciones del área (materiales, formatos y recursos digitales pasan al 4.2.3).',
     '78i': 'Filas nuevas.',
@@ -166,7 +167,6 @@ COMENT_PLANTILLA = {
     ('7.8', 1): 'Antes: «De acuerdo con su artículo 7…» en el primer párrafo. Ahora abre el segundo, con la metodología y '
                 'las técnicas.',
     ('7.8', 2): 'Nuevo: las orientaciones metodológicas del área, como último bloque (Gem).',
-    ('7.8', 3): 'Marcado para reubicar, como pidió Gem: el párrafo es bueno, pero no va aquí.',
     ('7.9', 0): 'Nuevo: materiales, formatos y recursos digitales, que llegan de la metodología.',
 }
 
@@ -260,8 +260,8 @@ ficha('**Probar que la intervención está contextualizada y que el contexto es 
 sub('Contenido obligatorio')
 bul('Entorno: tipo de localidad andaluza, nivel socioeconómico y cultural, <<uno o dos recursos del entorno que se usarán '
     '(biblioteca municipal, talleres gratuitos, residencia de mayores…)>>{#72a}.',
-    'Centro: tipo y líneas; <<una de las líneas generales de actuación pedagógica y uno de los objetivos generales '
-    'destinados a la mejora del rendimiento escolar y de la calidad educativa>>{#72b} del proyecto educativo; un plan o '
+    'Centro: tipo y líneas; <<una de las líneas generales de actuación pedagógica y la concreción curricular y uno de '
+    'los objetivos generales destinados a la mejora del rendimiento escolar y de la calidad educativa del centro>>{#72b} del proyecto educativo; un plan o '
     'programa; recursos que se usarán.',
     'Alumnado: curso, número, fortaleza y dificultad ligada al tema, <<cohesión e intereses según el sociograma>>{#72c}, '
     'diversidad.',
@@ -273,8 +273,8 @@ sub('Reglas de construcción')
 num('Si el enunciado da el contexto, se reproduce sin contradecirlo y se completa solo con lo útil; si no lo da, se '
     'inventa a medida.',
     'Regla del dato tachado: si al tachar un dato la propuesta no cambia, sobra.',
-    '<<Líneas generales de actuación pedagógica y objetivos generales destinados a la mejora del rendimiento escolar y de '
-    'la calidad educativa: inventables (son propios de cada centro), en infinitivo y realistas. Son los nombres que el '
+    '<<Líneas generales de actuación pedagógica y la concreción curricular y objetivos generales destinados a la mejora '
+    'del rendimiento escolar y de la calidad educativa del centro: inventables (son propios de cada centro), en infinitivo y realistas. Son los nombres que el '
     'Decreto 483/2026 da al artículo 21.3, letras b) y a), del Reglamento Orgánico; no se usan las siglas antiguas (LGAP, '
     'OMRE). Aquí solo se nombran: la norma se cita en 4.1.>>{#72d}',
     'Si se puede elegir nivel, se elige el que mejor se domina.',
@@ -336,7 +336,8 @@ ficha('**Responder a la parte «organizativa»: la propuesta nace de los documen
       '<<275 palabras los bloques fijos (300 con un bloque según el supuesto)>>{#75a} · 10 min · <<5 movimientos>>{#75a}', 'Convocatoria («organizativa»); C8 (cauces de coordinación); C2 secundario')
 sub('Contenido obligatorio')
 bul('Origen de la propuesta en un documento del centro, coherente con el contexto<<: la línea general de actuación '
-    'pedagógica o el objetivo general de mejora ya descritos en 2 solo se citan>>{#75b}.',
+    'pedagógica y de concreción curricular o el objetivo general destinado a la mejora del rendimiento escolar y de la '
+    'calidad educativa del centro, ya descritos en 2, solo se citan>>{#75b}.',
     'Al menos tres agentes, cada uno con verbo y acuerdo: <<equipo técnico de coordinación pedagógica, equipo de ciclo y '
     'equipo de orientación o especialista>>{#75c}.',
     'Cauce y calendario de coordinación <<con los especialistas de atención a la diversidad>>{#75d} (qué reunión, cuándo, '
@@ -374,7 +375,8 @@ tabla(['Error', 'Cómo evitarlo'], [
     ['Familias reducidas a «se informará»', 'Un cauce de información y una forma de participación'],
     ['Teoría de la organización escolar', 'Solo lo que sirve a esta propuesta'],
     ['Citar artículos de memoria', 'Dos como máximo y verificados'],
-    ['<<Volver a explicar la línea o el objetivo del contexto>>{#75l}', '<<Aquí solo se citan como origen>>{#75l}'],
+    ['<<Volver a explicar las líneas generales de actuación pedagógica y la concreción curricular o los objetivos generales '
+     'destinados a la mejora del rendimiento escolar y de la calidad educativa del centro>>{#75l}', '<<Aquí solo se citan como origen>>{#75l}'],
     ['<<Protección de datos sin que el supuesto lo pida>>{#75l}', '<<Solo si hay grabaciones o difusión de '
                                                                    'imágenes>>{#75l}'],
 ], [8.7, 8.7])
@@ -392,7 +394,8 @@ p('Los siete datos, en este orden: (1) título; (2) curso y ciclo; (3) área eje
 p('**Cómo redactarlos**: tres frases encadenadas, sin rótulos ni dos puntos. La primera identifica (título, curso, áreas); '
   'la segunda sitúa en el tiempo (trimestre, sesiones, efeméride); la tercera da sentido (reto → producto → '
   'destinatario). <<La cuarta conecta con los intereses del alumnado y con un Objetivo de Desarrollo Sostenible y da '
-  'continuidad a la línea o al objetivo del contexto.>>{#76b}')
+  'continuidad a la línea general de actuación pedagógica y de concreción curricular o al objetivo general destinado a la '
+  'mejora del rendimiento escolar y de la calidad educativa del centro, citados en el contexto.>>{#76b}')
 p('**Recomendable**: <<mención de que forma parte de la programación didáctica del ciclo>>{#76c}. Comprobación '
   'aritmética: las sesiones coinciden con las que suma 4.2.3.')
 tabla(['Error', 'Cómo evitarlo'], [
@@ -456,8 +459,7 @@ num('Principios pedagógicos (artículo 6 del Decreto 101/2023), <<siempre estos
     'información y la comunicación (letra c)>>{#78b}.',
     'Trabajo individual, cooperativo y entre iguales (artículo 7.2), un ejemplo de cada uno<<, con técnicas cooperativas '
     'concretas>>{#78c}.',
-    '<<Enfoque integrador, interdisciplinar y holístico: se acredita en 3 (artículo 7.3); su párrafo de la plantilla '
-    'queda pendiente de reubicar.>>{#78d}',
+    '<<Enfoque integrador, interdisciplinar y holístico: se acredita en 3 (artículo 7.3).>>{#78d}',
     '<<Variedad de materiales y recursos: al final de las actividades, en 4.2.3.>>{#78j}',
     '<<Recursos tecnológicos con finalidad didáctica: con el principio de la letra c) y, al final de las actividades, en '
     '4.2.3.>>{#78e}',
@@ -467,7 +469,7 @@ num('Principios pedagógicos (artículo 6 del Decreto 101/2023), <<siempre estos
     '30 de mayo de 2023, introducción de cada área), como último bloque y en tres o cuatro palabras (tabla del Word de '
     'plantillas).>>{#78f}')
 p('**Recomendable**: autor de la metodología principal; papel docente y gestión del error; espacios y tiempos; '
-  '<<coherencia con la línea de actuación del contexto>>{#78g}; referencia al esquema del anexo IV de la Orden de 30 de '
+  '<<coherencia con las líneas generales de actuación pedagógica y la concreción curricular del contexto>>{#78g}; referencia al esquema del anexo IV de la Orden de 30 de '
   'mayo de 2023.')
 p('**Estructura interna**: (1) principios ejemplificados<< (DUA, Andalucía y digital)>>{#78h}; (2) metodología principal '
   '(nombre, autor, rasgo esencial, cómo se despliega); (3) agrupamientos y técnicas; <<(4) orientaciones metodológicas del '

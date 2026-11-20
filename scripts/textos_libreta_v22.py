@@ -66,9 +66,9 @@ PLANTILLAS = {
                       'socioeconómico y cultural [nivel] y [grado] de participación de las familias. Dispone de '
                       '[1|recursos del entorno], que se aprovecharán en la propuesta.', 'nuevo': True},
             {'texto': 'Centro. Se trata de un colegio de educación infantil y primaria de [n.º] líneas cuyo proyecto '
-                      'educativo recoge, entre sus líneas generales de actuación pedagógica, [2|línea, en infinitivo] y, '
-                      'entre sus objetivos generales destinados a la mejora del rendimiento escolar y de la calidad '
-                      'educativa, [3|objetivo, en infinitivo], fijado a raíz de la última memoria de autoevaluación. '
+                      'educativo recoge, entre sus líneas generales de actuación pedagógica y la concreción curricular, '
+                      '[2|línea, en infinitivo] y, entre sus objetivos generales destinados a la mejora del rendimiento '
+                      'escolar y de la calidad educativa del centro, [3|objetivo, en infinitivo], fijado a raíz de la última memoria de autoevaluación. '
                       'Participa en [4|plan o programa] y cuenta con [recursos que se usarán].', 'nuevo': True},
             {'texto': 'Alumnado. El grupo de [curso] está formado por [n.º] alumnos y alumnas. Según la evaluación inicial '
                       'y el sociograma, [5|cohesión del grupo], destaca por [6|fortaleza o interés] y presenta dificultades '
@@ -98,8 +98,9 @@ PLANTILLAS = {
         'filas': [
             {'etiqueta': SIEMPRE,
              'texto': 'La intervención se articula en dos niveles: el de centro, de carácter organizativo, y el de aula. A '
-                      'nivel de centro, la propuesta parte de [1|la línea general de actuación pedagógica o el objetivo '
-                      'general de mejora citado en el contexto], tras detectarse en [memoria de autoevaluación o '
+                      'nivel de centro, la propuesta parte de [1|la línea general de actuación pedagógica y de concreción '
+                      'curricular o el objetivo general destinado a la mejora del rendimiento escolar y de la calidad '
+                      'educativa del centro, ya citado en el contexto], tras detectarse en [memoria de autoevaluación o '
                       'evaluación inicial] [necesidad].', 'nuevo': True},
             {'texto': 'De acuerdo con el ' + D328_COMPLETO + ', modificado por el ' + D483_COMPLETO + ' (en adelante, '
                       'Decreto 328/2010), el equipo técnico de coordinación pedagógica [2|acuerdo de centro] y el equipo de '
@@ -142,7 +143,7 @@ PLANTILLAS = {
                       '[coincidiendo con [1|efeméride]]. Parte del reto de [reto con palabras del enunciado] y culmina en '
                       '[producto final], que se presentará a [destinatario].'},
             {'texto': 'La situación conecta con los intereses del alumnado y con el Objetivo de Desarrollo Sostenible (ODS) '
-                      '[2|número y nombre], y da continuidad a [la línea o el objetivo de mejora del contexto].', 'nuevo': True},
+                      '[2|número y nombre], y da continuidad a [la línea general de actuación pedagógica y de concreción curricular o el objetivo general destinado a la mejora del rendimiento escolar y de la calidad educativa del centro, citado en el contexto].', 'nuevo': True},
         ],
     },
     '7.7': {
@@ -173,9 +174,6 @@ PLANTILLAS = {
                       '[6|técnica 1] y [técnica 2], y el aprendizaje entre iguales ([ejemplo]).', 'nuevo': True},
             {'texto': 'Por último, de acuerdo con las orientaciones que el anexo II de la Orden de 30 de mayo de 2023 recoge '
                       'para [área], la propuesta [7|idea clave del área], como [ejemplo en la propuesta].', 'nuevo': True},
-            {'etiqueta': REUBICAR,
-             'texto': 'El enfoque es interdisciplinar: [área eje] aporta [qué], [área 2] aporta [qué] y [área 3], [qué].',
-             'reubicar': True},
         ],
     },
     '7.9': {
@@ -223,7 +221,7 @@ BOCADILLOS = {
             ['Biblioteca municipal.', 'Talleres gratuitos del ayuntamiento.', 'Residencia de mayores.',
              'Centro de interpretación o museo local.', 'Asociaciones vecinales y culturales.',
              'Mercado de abastos, parques, polideportivo.', 'Uno o dos, y que después se usen.']),
-        2: ('Líneas generales de actuación pedagógica (las cuatro de la programación)', 'IDEAS',
+        2: ('Líneas generales de actuación pedagógica y la concreción curricular (las cuatro de la programación)', 'IDEAS',
             ['Situar al alumnado como protagonista de su aprendizaje mediante metodologías activas que potencien la '
              'colaboración.',
              'Flexibilizar la respuesta educativa para adaptarla a la diversidad de aptitudes, intereses y necesidades '
@@ -232,7 +230,7 @@ BOCADILLOS = {
              'y comunicar hallazgos.',
              'Fomentar la competencia digital del alumnado mediante el uso crítico y responsable de las herramientas y '
              'recursos tecnológicos del aula.']),
-        3: ('Objetivos generales de mejora (uno de lengua, otro de matemáticas)', 'IDEAS',
+        3: ('Objetivos generales destinados a la mejora del rendimiento escolar y de la calidad educativa del centro (uno de lengua, otro de matemáticas)', 'IDEAS',
             ['Lengua. Mejorar la comprensión lectora inferencial mediante el tiempo diario de lectura planificada y '
              'comprobar su progreso con una prueba común trimestral.',
              'Matemáticas. Mejorar la resolución de problemas mediante un modelo común de pasos en todos los ciclos y '
@@ -243,7 +241,7 @@ BOCADILLOS = {
              'Tipo B, a solicitud del centro. STEM (ciencia, tecnología y matemáticas); Vivir y Sentir el Patrimonio; '
              'Hábitos de Vida Saludable; Comunica (lectura, escritura, oralidad y radio).',
              'Tipo C, con convocatoria. Red de Radios Escolares de Andalucía, siempre junto con Comunica.',
-             'Proyectos ApS, no.']),
+             ]),
         5: ('Sociograma', 'IDEAS',
             ['El grupo está cohesionado y cuenta con líderes positivos.',
              'Se aprecian dos subgrupos que apenas se relacionan.',
@@ -282,11 +280,13 @@ BOCADILLOS = {
              'resolución de retos y problemas en Educación Infantil, Educación Primaria y Educación Secundaria '
              'Obligatoria: itinerario de problemas de dificultad creciente y pasos comunes.',
              'Biblioteca. Instrucciones de 10 de septiembre de 2025, sobre la organización y funcionamiento de las '
-             'bibliotecas escolares (título completo, por comprobar): biblioteca como recurso para la mediación lectora, '
-             'la alfabetización mediática e informacional y la inclusión.']),
+             'bibliotecas escolares (así las cita el BOJA n.º 57, de 24 de marzo de 2026): biblioteca como recurso '
+             'para la mediación lectora, la alfabetización mediática e informacional y la inclusión. Como en la '
+             'programación: el programa Bibliotecas Escolares (de oficio) y el Plan de Fomento de la Lectura 2026-2030 '
+             '(Ministerio de Cultura, 2026), leer mejor y no solo más, con las familias.']),
     },
     '7.5': {
-        1: ('Origen', 'IDEAS', ['Solo se cita la línea o el objetivo del contexto; no se vuelve a explicar.']),
+        1: ('Origen', 'IDEAS', ['Solo se cita la línea general de actuación pedagógica y de concreción curricular o el objetivo general destinado a la mejora del rendimiento escolar y de la calidad educativa del centro del contexto; no se vuelve a explicar.']),
         2: ('Acuerdo del equipo técnico', 'IDEAS',
             ['Trabajar en todo el centro [centro de interés] en torno a [efeméride]; cada ciclo lo adapta.']),
         3: ('Concreción del ciclo', 'IDEAS', ['Producto final común, reparto de sesiones entre áreas, rúbrica compartida.',
