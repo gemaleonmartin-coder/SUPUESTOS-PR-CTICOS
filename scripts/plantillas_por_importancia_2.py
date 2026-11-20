@@ -5,7 +5,7 @@ Cambios pedidos por Gem sobre la primera versión: sin saltos de página entre a
 y sin nada debajo; muchos más ejemplos y comodines (con ◆ los diferenciadores); el texto de la norma, literal, con su
 etiqueta; y la tabla de elementos curriculares con los colores de las áreas de la programación.
 
-Uso:  python3 scripts/plantillas_por_importancia_2.py   →   libreta-magica/Plantillas_por_importancia_v22_2.docx
+Uso:  python3 scripts/plantillas_por_importancia_2.py   →   libreta-magica/Plantillas_por_importancia_v22_3.docx
 Textos: opciones_plantillas_2.py (plantillas y opciones) y textos_libreta_v22.py (elementos y orientaciones).
 """
 import os
@@ -21,14 +21,14 @@ import opciones_plantillas_2 as O  # noqa: E402
 import plantillas_bocadillos as PB  # noqa: E402
 import textos_libreta_v22 as T  # noqa: E402
 
-SALIDA = os.path.join(PB.RAIZ, 'libreta-magica', 'Plantillas_por_importancia_v22_2.docx')
+SALIDA = os.path.join(PB.RAIZ, 'libreta-magica', 'Plantillas_por_importancia_v22_3.docx')   # v22_2: la anterior
 ANCHO = 17.4
 GRIS_C = '8C8C8C'
 INSIGNIA = {'1': (' 1.ª OPCIÓN ', PB.VERDE_AZ), 'C': (' COMODÍN {n} ', GRIS_C),
             'D': (' COMODÍN {n} ◆ ', PB.NARANJA_BORDE), 'N': (' NORMA ', PB.AZUL)}
 # Colores de las áreas en la programación de Gem (build_tabla_udi.py y apartado_4.py): fuerte, suave y texto
 AREA = {'CMN': ('E2F0DC', 'F2F8EF', '2E6B34'), 'LCL': ('F8DEDD', 'FCF1F0', '8B2E3C'),
-        'MAT': ('DCE9F5', 'EEF5FB', '1F4E79'), 'EAR': ('FBE5CC', 'FDF4EA', '9A5410')}
+        'MAT': ('DCE9F5', 'F1F6FB', '1F4E79'), 'EAR': ('FBE5CC', 'FDF4EA', '9A5410')}
 
 
 def _apretado(el, linea=246):
@@ -164,7 +164,7 @@ class Plantillas(PB.Constructor):
                        'programación o tu libreta definitiva) o cómo se usa. En el 4.1, los bloques «según el supuesto» '
                        'van del más frecuente al menos. Los autores se concretarán con los temas.', tam=10,
                        color='262626'), antes=80, despues=40, alin='both')
-        self.p(PB._run('Versión 2.2, segunda edición de las plantillas · 20 de noviembre de 2026 · Acompaña a la libreta '
+        self.p(PB._run('Versión 2.2, tercera edición de las plantillas · 20 de noviembre de 2026 · Acompaña a la libreta '
                        'mágica 2.2. Material de estudio personal.', color=PB.GRIS_TXT, tam=8.5, cursiva=True),
                despues=100)
 

@@ -839,7 +839,7 @@ OPCIONES = {
             'ops': [
             ('1', 'Los tres elementos fijos para todo el grupo, como en la programación: el KPSI o el Q-sort al comenzar, '
                   'la base de orientación del producto durante la situación (herramienta de evaluación y de DUA, para '
-                  'saber desde el principio qué se espera y cómo regularse) y una mini entrevista a cada equipo antes '
+                  'saber desde el principio qué se espera y cómo regularse) y una minientrevista a cada equipo antes '
                   'del producto final.'),
             ('C', 'Compromiso:', [
                 'actividades multinivel: un mismo reto con tres niveles de dificultad que suman puntos, y cada estudiante '
@@ -988,7 +988,7 @@ OPCIONES = {
             ('1', 'El 1-2-4, individual, en parejas y en el equipo de cuatro hasta una respuesta común, y el folio '
                   'giratorio, en el que el folio pasa por el equipo y cada uno añade su aportación con su color, lo que '
                   'muestra quién ha participado.'),
-            ('C', 'Más técnicas, con en qué consisten:', [
+            ('C', 'Más técnicas y en qué consisten:', [
                 '**Lápices al centro.** se debate con los lápices en el centro y, después, cada uno escribe la respuesta '
                 'acordada',
                 '**Cabezas numeradas juntas.** el equipo se asegura de que todos saben responder y el azar decide quién '
@@ -1037,7 +1037,7 @@ OPCIONES = {
         ]},
         7: {'titulo': 'Idea clave del área (anexo II de la Orden de 30 de mayo de 2023)', 'ops': [
             ('1', 'Una idea ★ del área eje en la tabla de orientaciones de abajo.'),
-            ('C', 'Otra idea del mismo área en la misma tabla.'),
+            ('C', 'Otra idea de la misma área, en la misma tabla.'),
             ('C', 'Con el ejemplo de la programación (figura 14):', [
                 '**Conocimiento del Medio.** indagando problemas reales del entorno, como por qué no se bebe el agua del '
                 'pueblo',
