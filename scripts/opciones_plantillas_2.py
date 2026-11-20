@@ -42,7 +42,8 @@ _cambia('7.1', 'Para dar respuesta', '[4|área eje]', '[área eje]')
 f = _fila('7.1', '{5|A tal fin')
 f['texto'] = re.sub(r'^\{5\|(.*)\}$', r'\1', f['texto'])
 _cambia('7.2', 'Alumnado.', '[perfil: necesidad y fortaleza]', '[91|perfil: necesidad y fortaleza]')
-_cambia('7.3', 'La respuesta a la necesidad', '[rasgo evolutivo]', '[91|rasgo evolutivo]')
+_cambia('7.1', '[1|Pregunta retórica', '[1|Pregunta retórica o dato sobre el tema, con las palabras clave del enunciado]',
+        '[1|Dato o cita fiable sobre el tema, con las palabras clave del enunciado]')
 _cambia('7.3', '{2|Desde el punto', '{2|Desde el punto de vista normativo,}', 'Desde el punto de vista normativo,')
 _cambia('7.5', 'La intervención se articula', '[1|la línea general', '[la línea general')
 _cambia('7.5', 'La intervención se articula', '[necesidad]', '[93|necesidad]')
@@ -74,79 +75,33 @@ D101 = 'Decreto 101/2023, artículo 6'
 OPCIONES = {
     # ------------------------------------------------------------------------------------------------ 7.1
     '7.1': {
-        1: {'titulo': 'Pregunta retórica o dato sobre el tema, con las palabras clave del enunciado', 'ops': [
-            ('1', 'Una pregunta retórica del tema del supuesto: no necesita fuente y no tiene riesgo de error. Se elige y '
-                  'se adapta con las palabras clave del enunciado. § Las de Rafa y otras nuevas.', [
-                '**Lectura.** ¿Es posible aprender ciencias, historia o matemáticas sin comprender lo que se lee?',
-                '**Lectura.** ¿Y si la lectura dejara de vivirse como una obligación para convertirse en un placer?',
-                '**Lectura.** ¿Qué lector puede formarse entre pantallas si nadie le enseña a detenerse en un texto?',
-                '**Escritura.** ¿Escribe mejor quien copia más o quien tiene algo que contar y alguien a quien '
-                'contárselo?',
-                '**Escritura.** ¿Cómo esperar que el alumnado cuide su ortografía si nunca escribe para un lector real?',
-                '**Oralidad.** ¿Cómo formar a una ciudadanía capaz de debatir si en el aula solo se escucha al docente?',
-                '**Oralidad.** ¿Qué ocurre con la voz de quien nunca se atreve a hablar en público?',
-                '**Matemáticas.** ¿Cómo esperar que el alumnado resuelva problemas si no comprende sus enunciados?',
-                '**Matemáticas.** ¿Se aprenden las matemáticas sin descubrir para qué sirven en la vida real?',
-                '**Matemáticas.** ¿Qué ocurriría si, en lugar de memorizar procedimientos, se enseñara a pensar '
-                'matemáticamente?',
-                '**Cálculo.** ¿De qué sirve dominar un algoritmo si no se sabe estimar si el resultado es razonable?',
-                '**Ciencias.** ¿Por qué se empañan los cristales? ¿Por qué cambia la sombra según la altura del sol?',
-                '**Ciencias.** ¿Cómo despertar vocaciones científicas si la ciencia solo se lee y nunca se experimenta?',
-                '**Medio ambiente.** ¿Cómo esperar que las nuevas generaciones protejan el planeta si no aprenden a '
-                'valorarlo?',
-                '**Agua y residuos.** ¿Qué planeta heredará un alumnado que no sabe de dónde viene el agua que bebe ni '
-                'adónde va lo que tira?',
-                '**Salud.** ¿Puede rendir en clase quien llega sin desayunar o duerme con el móvil bajo la almohada?',
-                '**Salud.** ¿Qué hábitos saludables puede adquirir quien pasa más horas ante una pantalla que en '
-                'movimiento?',
-                '**Inclusión.** ¿Puede hablarse de equidad si no se ofrece a cada estudiante lo que necesita?',
-                '**Inclusión.** ¿Por qué diseñar para un alumno o alumna «tipo» si en el aula no existe?',
-                '**Convivencia.** ¿Puede aprender quien no se siente seguro ni aceptado en su aula?',
-                '**Emociones.** ¿Y si las emociones se enseñaran con la misma intención que la lengua o las '
-                'matemáticas?',
-                '**Acoso.** ¿Cuántos conflictos se evitarían si el alumnado aprendiera a ponerse en el lugar del otro?',
-                '**Igualdad.** ¿Elige el alumnado sus juegos, sus colores y sus sueños, o se los dictan los estereotipos?',
-                '**Igualdad.** ¿Cuántas mujeres científicas o artistas sabe nombrar el alumnado al terminar la educación '
-                'primaria?',
-                '**Metodologías.** ¿Basta con incorporar tecnología al aula o hay que cambiar la forma de enseñar?',
-                '**Metodologías.** ¿Aprende más quien escucha una explicación o quien tiene que explicársela a otro?',
-                '**Tecnología.** ¿Cómo convertir a una generación que consume pantallas en una generación que crea con '
-                'ellas de forma segura y crítica?',
-                '**Bulos.** ¿Sabe el alumnado distinguir una noticia de un bulo antes de compartirla?',
-                '**Inteligencia artificial.** ¿Qué sentido tiene memorizar respuestas si no se aprende a hacer buenas '
-                'preguntas?',
-                '**Patrimonio andaluz.** ¿Qué sabe el alumnado del patrimonio que pisa cada día de camino al colegio?',
-                '**Patrimonio.** ¿Puede valorarse lo que no se conoce? ¿Cuántas historias de su pueblo podría contar hoy '
-                'un niño de diez años?',
-                '**Historia.** ¿Cómo entender el presente sin preguntarse cómo vivían quienes habitaron el mismo pueblo '
-                'hace cien años?',
-                '**Artística.** ¿Qué lugar ocupa la creatividad en una escuela que solo premia la respuesta correcta?',
-                '**Música.** ¿Puede una canción enseñar lo que no logra una lección?',
-                '**Familias y entorno.** ¿Puede educar la escuela de espaldas a las familias y al pueblo que la rodea?',
-                '**Consumo.** ¿Sabe el alumnado cuánto cuesta lo que pide o lo que tira?',
-            ]),
-            ('C', 'Un dato, solo con su fuente y sus cifras exactas:', [
-                '**Lectura, el más pertinente para educación primaria.** PIRLS 2021, cuarto curso: España obtuvo 521 '
-                'puntos en comprensión lectora, por debajo de la Unión Europea (528) y del promedio de la OCDE (533), y '
-                'por debajo de su resultado de 2016 (528); Andalucía, 523. § Rafa.',
-                '**Lectura y matemáticas en Andalucía.** PISA 2025 (OCDE, 2026) sitúa a Andalucía en 441 puntos en '
-                'lectura y 442 en matemáticas, frente a 451 y 457 en España. § Como en la programación; mide a '
-                'estudiantes de quince años.',
-                '**Contexto general.** PISA 2022: España, 474 puntos en lectura, 473 en matemáticas y 485 en ciencias; '
-                'promedios de la OCDE, 476, 472 y 485. § Rafa.',
-                '**Bienestar emocional.** Según la Junta Internacional de Fiscalización de Estupefacientes, España es el '
-                'primer país del mundo en consumo de benzodiacepinas, con unas 110 dosis diarias por cada 1000 '
-                'habitantes (datos de 2021). § Manual; para supuestos de educación emocional.',
-            ]),
-            ('D', 'Una cita literal comprobada, para abrir con fuerza:', [
-                '**Lengua.** «El lenguaje es el vestido del pensamiento» (Samuel Johnson). § Rafa.',
-                '**Artística.** «El arte no reproduce lo visible, sino que hace visible» (Paul Klee). § Rafa; la '
-                'traducción varía.',
-                '**Lengua oral.** «Solo donde hay lenguaje hay mundo» (Martin Heidegger). § Rafa; la redacción española '
-                'varía.',
-                '**Inclusión.** «Cada persona brilla con luz propia entre todas las demás. No hay dos fuegos iguales» '
-                '(Galeano, 1989). § Como en la programación.',
-            ]),
+        1: {'titulo': 'Dato o cita fiable sobre el tema (copiados tal cual de la libreta mágica y del manual)', 'ops': [
+            ('1', '★ PIRLS 2021 (4.º de Primaria): España, 521 puntos en comprensión lectora, por debajo de la Unión '
+                  'Europea (528) y del promedio de la OCDE (533), y por debajo de su resultado de 2016 (528); Andalucía, '
+                  '523 § Gancho de T2 lectura. Es el dato más pertinente para Primaria (libreta mágica, Parte II, 1.2).'),
+            ('C', 'PISA 2022: España, 474 en lectura, 473 en matemáticas y 485 en ciencias; promedios de la OCDE, 476, 472 '
+                  'y 485 § Solo como contexto general: PISA mide a estudiantes de quince años. España no estaba por debajo '
+                  'de la media en matemáticas (libreta mágica, Parte II, 1.2).'),
+            ('C', '«La Defensoría de la Infancia y la Adolescencia de Andalucía dedicó un informe especial a la atención '
+                  'educativa en los colegios públicos rurales (2022), que subraya sus retos y oportunidades.» (sin cifras '
+                  'del informe) § Escuela rural (T5a) (libreta mágica, Parte II, 2.1).'),
+            ('C', 'Según los datos provisionales del Instituto Nacional de Estadística (INE), en 2025 se registraron 3808 '
+                  'suicidios en España. En 2024, con 3846 según el dato provisional, el suicidio fue la segunda causa de '
+                  'muerte externa, tras las caídas accidentales. Según la Junta Internacional de Fiscalización de '
+                  'Estupefacientes (JIFE), España es el primer país del mundo en consumo de benzodiacepinas, con unas 110 '
+                  'dosis diarias por cada 1000 habitantes (datos de 2021, los últimos que he encontrado). § Educación '
+                  'emocional (manual, «Datos para empezar a hablar del tema»).'),
+            ('D', 'Citas literales verificadas (libreta mágica, Parte II, 1.3):', [
+                '«El lenguaje es el vestido del pensamiento». Samuel Johnson, Life of Cowley, en Lives of the English '
+                'Poets (1779-1781) § T2 lengua; T1 comunicación.',
+                '«El arte no reproduce lo visible, sino que hace visible». Paul Klee, Confesión creadora (1920); la '
+                'traducción varía § Educación artística.',
+                '«Solo donde hay lenguaje hay mundo». Martin Heidegger, Hölderlin y la esencia de la poesía (1936); la '
+                'redacción española varía § T2 lengua oral.',
+                '«Diferentes caminos conducen a veces al mismo castillo». George R. R. Martin, Juego de tronos (1996) '
+                '§ T3, solo si se domina; baja idoneidad académica.',
+                'Ejemplo de uso: «"El lenguaje es el vestido del pensamiento", escribió Samuel Johnson. En la misma '
+                'línea, el dominio de la comunicación oral y escrita condiciona el resto de los aprendizajes…».']),
         ]},
         2: {'ops': [('1', 'Se concretará con los temas: un autor del tema, de 2020 en adelante, con un solo apellido.')]},
         3: {'titulo': 'Objetivo de la etapa relacionado (artículo 17 de la LOE, literal)', 'ops': [
@@ -304,27 +259,58 @@ OPCIONES = {
                 'su progreso con una prueba común al final de cada trimestre.',
             ]),
         ]},
-        4: {'titulo': 'Plan o programa (Resolución de 29 de junio de 2026; cambian cada curso)', 'ops': [
-            ('1', 'Educación Inclusiva, de procedimiento tipo A (participación de oficio): vale siempre, porque toda '
-                  'propuesta atiende a la diversidad.'),
-            ('C', 'Plan de Actuación Digital (tipo A, de oficio), si se usan recursos digitales.'),
-            ('C', 'El programa del tema, de tipo B (participación sin convocatoria específica, a solicitud del centro):', [
-                '**STEM**, para ciencia, tecnología, robótica y matemáticas',
-                '**Vivir y Sentir el Patrimonio**, para el patrimonio y la cultura andaluza',
-                '**Hábitos de Vida Saludable**, para la salud y la alimentación',
-                '**Aldea**, para el medio ambiente y la sostenibilidad',
-                '**Comunica**, para la lectura, la escritura y la oralidad',
-                '**Red Andaluza: “Escuela Espacio de Paz”**, para la convivencia',
-                '**ConRed** y **ADA**, para la convivencia digital',
-                '**aulaDjaque**, para el ajedrez',
-                '**Programas Culturales**, **Emprendimiento Educativo** y **Fénix Andalucía**',
-            ]),
-            ('C', 'Otros de tipo A (de oficio): Bibliotecas Escolares, Bienestar Emocional, Plan de Igualdad de Género en '
-                  'Educación de Andalucía, Escuela Código 4.0 y Plan de Apertura de Centros Docentes.'),
-            ('D', 'De tipo C (con convocatoria específica), solo si encajan del todo: Red de Radios Escolares de '
-                  'Andalucía, siempre junto con Comunica; Investiga y Descubre, para el alumnado con alto interés y '
-                  'capacidad; Red Andaluza de Ecoescuelas; Proyecto Aulas Verdes Abiertas; Red de Escuelas Promotoras de '
-                  'Salud de Andalucía; Comunidades de Aprendizaje; Torneo de Debate.'),
+        4: {'titulo': 'Plan o programa (Resolución de 29 de junio de 2026): qué tiene que cumplir cada uno', 'ops': [
+            ('1', 'Educación Inclusiva, de procedimiento tipo A: «La participación de los centros educativos en los '
+                  'siguientes Programas se determinará de oficio por parte de la propia Consejería de Desarrollo Educativo '
+                  'y Formación Profesional». § El centro no tiene que pedir nada; vale siempre, porque toda propuesta '
+                  'atiende a la diversidad.'),
+            ('C', 'Los demás de tipo A, también de oficio: Bienestar Emocional, Bibliotecas Escolares, Plan de Actuación '
+                  'Digital, Educación Inclusiva +, Plan de Apertura de Centros Docentes y Plan de Igualdad de Género en '
+                  'Educación de Andalucía.'),
+            ('D', '**La robótica: Escuela Código 4.0** (tipo A), de oficio solo «en centros que impartan enseñanzas '
+                  'incluidas en el Programa de Cooperación Territorial Código Escuela 4.0 (segundo ciclo de Educación '
+                  'Infantil, Educación Primaria y/o Educación Secundaria Obligatoria)». Su Proyecto STEAM 4.0 pide «Una '
+                  'Línea de Actuación en el Ámbito “Procesos de Enseñanza-Aprendizaje” del PAD, vinculada al desarrollo '
+                  'del pensamiento computacional, la programación, la robótica o la inteligencia artificial». § La '
+                  'robótica está aquí, no en STEM (página del Proyecto STEAM 4.0 de la Consejería, que desarrolla la '
+                  'Resolución de 1 de agosto de 2025).'),
+            ('C', 'Tipo B, «participación sin convocatoria específica (convocatoria general)»: «la participación de los '
+                  'centros educativos en los siguientes Programas requerirá la previa solicitud de los mismos». Lo que hay '
+                  'que cumplir:', [
+                '**Plazo.** «del 1 al 30 de septiembre de 2026, ambos inclusive, a excepción del Programa Red Andaluza: '
+                '“Escuela Espacio de Paz”, cuyo plazo será del 15 de junio al 30 de septiembre de 2026».',
+                '**Aprobación.** «Acta o certificado de la aprobación por parte del Claustro y del Consejo Escolar de la '
+                'participación en cada uno de los Programas, con indicación de las líneas de trabajo, en los Programas '
+                'que lo requieran».',
+                '**Coordinación y profesorado.** «Persona que desempeñará la Coordinación de los diferentes Programas '
+                'educativos» y «Profesorado participante», registrados en Séneca.',
+                '**Sin límite de plazas.** «se entenderá que participan en dichos Programas educativos, dado que se trata '
+                'de Programas sin convocatoria específica y, por tanto, sin límite de participación».',
+                '**Cuáles.** Hábitos de Vida Saludable, Aldea, ConRed, ADA, Comunica, aulaDjaque, Programas Culturales, '
+                'Vivir y Sentir el Patrimonio, Emprendimiento Educativo, STEM, Red Andaluza: “Escuela Espacio de Paz” y '
+                'Fénix Andalucía. § Prácticum y PEBIF también son de tipo B, pero no sirven para la propuesta.']),
+            ('C', '**STEM** (tipo B): «El programa STEM es un programa que pretende impulsar el desarrollo de competencias '
+                  'científicas, tecnológicas, matemáticas y de ingeniería desde un enfoque interdisciplinar, igualitario, '
+                  'creativo y práctico». Para quinto, sus recursos: RetoTech, «un proyecto tecnológico que resuelva una '
+                  'necesidad real de su entorno» (5.º y 6.º); Astro Pi, «escribiendo programas informáticos que se '
+                  'ejecutan en computadoras Raspberry Pi a bordo de la Estación Espacial Internacional»; Moon Camp, para '
+                  '«diseñar y modelar en 3D»; Detectives Climáticos Kids (5-13 años) y Mission X. § Página del programa '
+                  'STEM 2026/2027 de la Consejería.'),
+            ('D', 'Tipo C, «participación sujeta a convocatoria específica»: «la participación de los centros educativos '
+                  'en los siguientes Programas estará sujeta a lo dispuesto en la correspondiente convocatoria de cada uno '
+                  'de ellos». § Solo si el enunciado dice que el centro ya participa.', [
+                '**Red de Radios Escolares de Andalucía**, con convocatoria en el primer trimestre. § Siempre junto con '
+                'Comunica.',
+                '**Comunidades de Aprendizaje**, con convocatoria en el segundo trimestre: «dicho acta o certificado deberá '
+                'incluir el número de miembros del Claustro, el número de asistentes, así como el número de votos '
+                'favorables».',
+                '**Investiga y Descubre**: el profesorado «deberá haber implementado el Proyecto del Programa durante al '
+                'menos 32 horas».',
+                '**Otros**: Red Andaluza de Ecoescuelas, Proyecto Aulas Verdes Abiertas, Red de Escuelas Promotoras de '
+                'Salud de Andalucía, Programa Escolar de Consumo de Fruta, Hortalizas y Leche, Más Deporte, PROA Andalucía '
+                'y Torneo de Debate.']),
+            ('C', 'Para certificarlos: «Haber cumplimentado en Séneca el requisito de la participación y/o asistencia al '
+                  'Programa, por un mínimo de 6 meses en los Programas que lo requieran».'),
         ]},
         5: {'titulo': 'Cohesión del grupo según el sociograma (después, sirve para formar los equipos)', 'ops': [
             ('1', 'El grupo está cohesionado y cuenta con líderes positivos.'),
@@ -385,17 +371,6 @@ OPCIONES = {
     # ------------------------------------------------------------------------------------------------ 7.3
     '7.3': {
         1: {'ops': [('1', 'Se concretarán con los temas: dos autores muy específicos del tema, de 2020 en adelante.')]},
-        91: {'titulo': 'Rasgo evolutivo de diez y once años', 'ops': [
-            ('1', 'se encuentra en la etapa de las operaciones concretas y empieza a acercarse a la abstracción (Papalia '
-                  'y Martorell, 2021), por lo que se combinan actividades manipulativas con otras de mayor abstracción. '
-                  '§ Como en la programación.'),
-            ('C', 'consolida las habilidades motrices básicas (Garrote y Avilés, 2022), lo que permite tareas de '
-                  'movimiento y de manipulación fina. § Programación; supuestos con salidas o motricidad.'),
-            ('C', 'su autoconcepto se vuelve más realista (Hernández et al., 2024), por lo que necesita experiencias de '
-                  'éxito y una retroalimentación cuidada. § Programación; supuestos de emociones o convivencia.'),
-            ('C', 'gana autonomía y concede cada vez más importancia al grupo de iguales, lo que favorece el trabajo '
-                  'cooperativo. § Sin autor.'),
-        ]},
         3: {'titulo': 'En lugar del artículo 10.2: los retos del siglo XXI (anexo I del Real Decreto 157/2022)', 'ops': [
             ('D', 'Se cambia la frase del 10.2 por esta: «…el Real Decreto 157/2022 vincula en su anexo I las competencias '
                   'clave con los principales retos y desafíos globales del siglo XXI, entre ellos [el reto, literal]». '
@@ -465,31 +440,62 @@ OPCIONES = {
             ]),
             ('1', '**Si es de Matemáticas.** Instrucciones de 18 de junio de 2024, de la Viceconsejería de Desarrollo '
                   'Educativo y Formación Profesional, sobre las medidas para el fomento del razonamiento matemático a '
-                  'través del planteamiento y resolución de retos y problemas en Educación Infantil, Educación Primaria y '
-                  'Educación Secundaria Obligatoria. Qué se toma, con su letra o su punto:', [
-                '**Pasos heurísticos (punto 4.4).** Siete pasos: 1.º situación problemática cercana y diálogo sobre '
-                'ella; 2.º comprensión, representando el problema e identificando datos y preguntas; 3.º elección de '
-                'estrategias, como analogía, ensayo-error, resolución inversa, tanteo o descomposición en pasos, y de las '
-                'operaciones y su orden; 4.º aplicación de estrategias y cálculos; 5.º uso sistemático de colores, con '
-                'las unidades en azul, las decenas en rojo, las centenas en verde y las unidades de millar en negro, y '
-                'para subrayar datos, palabras clave y pregunta; 6.º comprobación de la corrección y la validez del '
-                'resultado; 7.º reflexión conjunta y comunicación oral o escrita del proceso. § Se traduce en: un mural '
-                'de los siete pasos y una sesión de retos con rutina fija.',
-                '**Lectura de enunciados (letra b).** Se dedica el tiempo necesario a leer bien los enunciados (ritmo y '
-                'entonación, aclarar conceptos y léxico, usar sinónimos, fragmentar el enunciado y diferenciar sus '
-                'preguntas), con una plantilla por tipo de problema. § Se traduce en: lectura en voz alta, subrayado de '
-                'datos y pregunta y reformulación con sus palabras.',
-                '**Itinerario de problemas (letra d).** Cada centro diseña para la etapa un itinerario de problemas '
-                'organizados en creciente grado de dificultad y exigencia. § Se traduce en: retos que avanzan de un dato '
-                'y una operación a varios pasos y, al final, un problema inventado por el alumnado.',
-                '**Vínculo con otras áreas (letra a).** Las actividades de competencia matemática tienen un carácter '
-                'eminentemente instrumental y vinculado a otras áreas, como las ciencias, el arte, la música o la '
-                'tecnología. § Para supuestos de Conocimiento del Medio o de Artística: escalas en mapas de Andalucía, '
-                'teselados de la Alhambra o figuras musicales y fracciones.',
-                '**Cálculo.** El plan de impulso de la Consejería organiza sus recursos en cinco bloques: planteamiento y '
-                'resolución de problemas, metodologías manipulativas, concepto de número, operaciones y estrategias para '
-                'el cálculo mental. § Se traduce en: retos de cálculo mental de cinco minutos y material manipulativo '
-                '(Consejería de Educación, s. f.).',
+                  'través del planteamiento y la resolución de retos y problemas en Educación Infantil, Educación Primaria '
+                  'y Educación Secundaria Obligatoria. Qué se toma, literal, con su apartado:', [
+                '**El tiempo semanal (quinta, 5).** «cada semana se establecerá un tiempo definido en el horario. El '
+                'mismo, en aplicación de los principios pedagógicos regulados en los Decretos por los que se establecen '
+                'la ordenación y el currículo de ambas etapas, deberá distribuirse en tres días distintos con una duración '
+                'de, al menos, 30 minutos cada uno». § Se traduce en: tres sesiones semanales de retos.',
+                '**El método común (tercera, e).** «La resolución de situaciones problemáticas deberá contar con un método '
+                'común, acordado en el centro, con las estrategias adecuadas según las características de la etapa y la '
+                'edad del alumnado, sin perjuicio de estimular en el alumnado la búsqueda de estrategias propias de '
+                'resolución de problemas».',
+                '**El itinerario (tercera, d).** «Los centros deberán diseñar para cada etapa educativa un itinerario de '
+                'problemas organizados, de manera que se avance en creciente grado de dificultad y exigencia».',
+                '**Las otras áreas (tercera, a).** «Las actividades para el desarrollo de la competencia matemática, '
+                'deberán tener un carácter eminentemente instrumental y vinculado a otras áreas del conocimiento, como '
+                'las ciencias naturales, las ciencias sociales, el arte, la música, o la tecnología».',
+                '**La lectura de enunciados (cuarta, b).** «es imprescindible dedicar el tiempo que sea necesario para '
+                'leer adecuadamente los enunciados con un ritmo y una entonación facilitadora, aclarando conceptos, nuevos '
+                'léxicos, utilizando sinónimos, fragmentando las partes del enunciado, diferenciando las preguntas del '
+                'mismo y sustituyéndolas por otras si fuera necesario…».',
+                '**Los textos matemáticos (cuarta, c).** «es conveniente trabajar textos matemáticos de distinta '
+                'naturaleza (tablas de datos y gráficas, etiquetas, tickets de compras, presupuestos, facturas, recetas de '
+                'cocina, croquis, mapas y escalas, cronogramas, líneas históricas de tiempo, otros textos discontinuos, '
+                'etc.)».',
+                '**El cálculo mental (cuarta, f).** «El objetivo del cálculo mental radica en la necesidad de automatizar '
+                'operaciones aritméticas con la intención de liberar recursos cognitivos necesarios para destinarlos a la '
+                'comprensión y al adecuado planteamiento de problemas, retos o tareas más complejas», y puede integrarse '
+                '«asignando un tiempo fijo, al menos dos o tres veces por semana a modo de rutina».',
+                '**La evaluación (tercera, k).** «debe valorarse el progreso del alumnado en la búsqueda de soluciones, en '
+                'el desarrollo de estrategias de razonamiento, es decir en los procesos seguidos, y no solo en los '
+                'resultados».',
+            ]),
+            ('1', '**Los siete pasos heurísticos de educación primaria (cuarta, 4.4)**, literales:', [
+                '«1º. Planteamiento de una situación problemática cercana o conocida que requiera el uso de las '
+                'Matemáticas. Diálogo sobre la misma, aportación de informaciones complementarias. Relación con otras '
+                'situaciones conocidas, ya resueltas o en proceso de resolución».',
+                '«2º. La comprensión de la situación es siempre el primer paso hacia su resolución. La representación o '
+                'visualización del problema ayuda a su interpretación, así como a la identificación y organización de los '
+                'datos y el establecimiento de relaciones entre ellos. […] Identificación de las preguntas a resolver así '
+                'como su intención para llegar a una comprensión de las mismas».',
+                '«3º. Identificación de estrategias para resolver el problema y para el desarrollo del razonamiento. El '
+                'uso de diferentes estrategias permite descubrir una diversidad de opciones para obtener posibles '
+                'soluciones: analogía, ensayo-error, resolución inversa, tanteo, descomposición en pasos o problemas más '
+                'sencillos. […] Toma de decisiones sobre las operaciones necesarias y el orden de las mismas para la '
+                'resolución del problema».',
+                '«4º. Aplicación de estrategias y ejecución de los cálculos y operaciones. Búsqueda de las posibles '
+                'conexiones entre la información y las operaciones necesarias para la resolución».',
+                '«5º. Es de gran importancia la adecuada y sistemática utilización de diferentes colores […] si las '
+                'unidades se colorean en azul, las decenas en rojo, las centenas en verde y las unidades de millar en '
+                'negro, siempre se deberá utilizar esos mismos colores a lo largo de toda la etapa […] Igualmente será de '
+                'utilidad metodológica el uso de distintos colores para subrayar los datos de los enunciados, las palabras '
+                'claves que determinen las operaciones a realizar y la estrategia a seguir, así como la pregunta o '
+                'preguntas a resolver».',
+                '«6º. Resolución: comprobar la corrección matemática de la solución y la validez de los resultados '
+                'obtenidos. La representación puede contribuir a valorar la coherencia y sentido de los resultados».',
+                '«7º. Reflexión conjunta sobre el proceso seguido. Comunicación oral y/o escrita de dicho proceso y del '
+                'resultado obtenido». § Se traduce en: un mural de los siete pasos y una sesión de retos con rutina fija.',
             ]),
             ('C', '**Si es de biblioteca.** Instrucciones de 10 de septiembre de 2025, sobre la organización y '
                   'funcionamiento de las bibliotecas escolares, como las cita el BOJA n.º 57, de 24 de marzo de 2026: la '
@@ -497,8 +503,7 @@ OPCIONES = {
                   'inclusión. Como en la programación, con el programa Bibliotecas Escolares y el Plan de Fomento de la '
                   'Lectura 2026-2030, que propone leer mejor, y no solo más, contando con las familias (Ministerio de '
                   'Cultura, 2026).'),
-        ], 'nota': '[POR COMPROBAR: las frases literales de las Instrucciones de 18 de junio de 2024. Van resumidas con tu '
-                   'libreta definitiva, porque no he podido abrir su PDF; si lo subes al repositorio, las copio tal cual.]'},
+        ]},
     },
     # ------------------------------------------------------------------------------------------------ 7.5
     '7.5': {

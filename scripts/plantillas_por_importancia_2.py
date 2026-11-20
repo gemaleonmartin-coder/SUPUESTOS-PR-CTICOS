@@ -5,7 +5,7 @@ Cambios pedidos por Gem sobre la primera versión: sin saltos de página entre a
 y sin nada debajo; muchos más ejemplos y comodines (con ◆ los diferenciadores); el texto de la norma, literal, con su
 etiqueta; y la tabla de elementos curriculares con los colores de las áreas de la programación.
 
-Uso:  python3 scripts/plantillas_por_importancia_2.py   →   libreta-magica/Plantillas_por_importancia_v22_3.docx
+Uso:  python3 scripts/plantillas_por_importancia_2.py   →   libreta-magica/Plantillas_por_importancia_v22_4.docx
 Textos: opciones_plantillas_2.py (plantillas y opciones) y textos_libreta_v22.py (elementos y orientaciones).
 """
 import os
@@ -21,7 +21,7 @@ import opciones_plantillas_2 as O  # noqa: E402
 import plantillas_bocadillos as PB  # noqa: E402
 import textos_libreta_v22 as T  # noqa: E402
 
-SALIDA = os.path.join(PB.RAIZ, 'libreta-magica', 'Plantillas_por_importancia_v22_3.docx')   # v22_2: la anterior
+SALIDA = os.path.join(PB.RAIZ, 'libreta-magica', 'Plantillas_por_importancia_v22_4.docx')   # v22_3: la anterior
 ANCHO = 17.4
 GRIS_C = '8C8C8C'
 INSIGNIA = {'1': (' 1.ª OPCIÓN ', PB.VERDE_AZ), 'C': (' COMODÍN {n} ', GRIS_C),
@@ -145,31 +145,103 @@ class Plantillas(PB.Constructor):
         h._p.append(parse_xml(f'<w:r {PB.NS}>{PB._rpr(color=PB.GRIS_TXT, tam=8)}<w:t xml:space="preserve">  ·  '
                               f'Plantillas por importancia · Educación Primaria · Andalucía 2027</w:t></w:r>'))
 
-    def portada(self):
-        self.p(PB._run('SUPUESTOS PRÁCTICOS · PARTE A', versalitas=True, color=PB.NARANJA_BORDE, tam=9, negrita=True),
-               antes=0, despues=60)
-        self.p(PB._run('Plantillas por importancia', negrita=True, color=PB.AZUL, tam=24), despues=40)
-        self.p(PB._run('Las plantillas de redacción de la libreta mágica (7.1 a 7.9) y, debajo de cada párrafo, con qué '
-                       'se completa cada hueco, de lo más importante a lo menos, con muchos ejemplos para elegir según el '
-                       'proyecto', color=PB.VERDE_AZ, tam=11.5), despues=120)
+    # ------------------------------------------------------------------------------------------- portada
+    # Distinta de la de la libreta (allí, un bloque azul marino arriba): una banda vertical verde petróleo a la
+    # izquierda, el título en serif, el índice con sus páginas y la leyenda en un recuadro; mismo tono académico.
+    PETROLEO, CREMA_BANDA, TINTA = '1D4E59', 'F3E9D2', '1F2D33'
+    INDICE = [('7.1. Introducción', '7.1. Introducción'),
+              ('7.2. Contexto: entorno, centro y alumnado', '7.2. Contexto'),
+              ('7.3. Justificación normativa y epistemológica', '7.3. Justificación'),
+              ('7.5. Intervención a nivel de centro', '7.5. Intervención'),
+              ('7.6. Intervención a nivel de aula: datos identificativos', '7.6. Intervención'),
+              ('7.7. Concreción curricular y tabla de elementos', '7.7. Concreción'),
+              ('7.8. Metodología y orientaciones de cada área', '7.8. Metodología'),
+              ('7.9. Secuencia didáctica', '7.9. Secuencia')]
+
+    @staticmethod
+    def _r(t, fuente='Calibri', tam=10.5, color='1F2D33', b=False, i=False, esp=None):
+        t = t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        return (f'<w:r><w:rPr><w:rFonts w:ascii="{fuente}" w:hAnsi="{fuente}" w:cs="{fuente}"/>' + ('<w:b/>' if b else '')
+                + ('<w:i/>' if i else '') + f'<w:color w:val="{color}"/>' + (f'<w:spacing w:val="{esp}"/>' if esp else '')
+                + f'<w:sz w:val="{int(tam * 2)}"/></w:rPr><w:t xml:space="preserve">{t}</w:t></w:r>')
+
+    @staticmethod
+    def _pp(runs, antes=0, despues=0, linea=259, jc='left', extra=''):
+        return (f'<w:p><w:pPr>{extra}<w:spacing w:before="{antes}" w:after="{despues}" w:line="{linea}" '
+                f'w:lineRule="auto"/><w:jc w:val="{jc}"/></w:pPr>{runs}</w:p>')
+
+    def portada(self, paginas=None):
+        paginas = paginas or {}
+        r, pp = self._r, self._pp
+        ancho_total = int(ANCHO * 567)
+        banda, cuerpo = 794, ancho_total - 794
+        tab = cuerpo - 567 - 120
+        indice = ''.join(
+            pp(r(t, tam=10.5, color=self.TINTA) + '<w:r><w:tab/></w:r>'
+               + r(str(paginas.get(t, '')), tam=10.5, color=self.PETROLEO, b=True), despues=70,
+               extra=f'<w:tabs><w:tab w:val="right" w:leader="dot" w:pos="{tab}"/></w:tabs>')
+            for t, _ in self.INDICE)
+        leyenda = ''
         for nivel, texto in (('1', 'la más importante; si depende del área, una por área.'),
                              ('C', 'por si no encaja la primera, en orden de utilidad.'),
                              ('D', 'el comodín diferenciador, el que sorprende al tribunal.'),
                              ('N', 'el texto de la norma, copiado tal cual, para estudiarlo.')):
             etq, color = INSIGNIA[nivel]
-            self.p(PB._run(etq.format(n=1), negrita=True, color='FFFFFF', tam=8, fondo=color)
-                   + PB._run('  ' + texto, tam=10, color='262626'), despues=40)
-        self.p(PB._run('El número naranja de cada hueco lleva a sus opciones, justo debajo del cuadro. Lo fijo va en el '
-                       'cuadro y no lleva nada debajo. En gris, de dónde sale el ejemplo (Rafa, tu manual, tu '
-                       'programación o tu libreta definitiva) o cómo se usa. En el 4.1, los bloques «según el supuesto» '
-                       'van del más frecuente al menos. Los autores se concretarán con los temas.', tam=10,
-                       color='262626'), antes=80, despues=40, alin='both')
-        self.p(PB._run('Versión 2.2, tercera edición de las plantillas · 20 de noviembre de 2026 · Acompaña a la libreta '
-                       'mágica 2.2. Material de estudio personal.', color=PB.GRIS_TXT, tam=8.5, cursiva=True),
-               despues=100)
+            leyenda += pp(PB._run(etq.format(n=1), negrita=True, color='FFFFFF', tam=8, fondo=color)
+                          + r('  ' + texto, tam=10), despues=50)
+        leyenda += pp(r('El número naranja de cada hueco lleva a sus opciones, justo debajo del cuadro. Lo fijo va en el '
+                        'cuadro y no lleva nada debajo. En gris, de dónde sale cada ejemplo o cómo se usa. En el 4.1, los '
+                        'bloques «según el supuesto» van del más frecuente al menos. Los autores se concretarán con los '
+                        'temas.', tam=9.5, color='4A5A60'), antes=60, jc='both')
+        caja = (f'<w:tbl><w:tblPr><w:tblW w:w="{cuerpo - 567}" w:type="dxa"/><w:tblLayout w:type="fixed"/>'
+                f'<w:tblCellMar><w:left w:w="0" w:type="dxa"/><w:right w:w="0" w:type="dxa"/></w:tblCellMar></w:tblPr>'
+                f'<w:tblGrid><w:gridCol w:w="{cuerpo - 567}"/></w:tblGrid><w:tr><w:trPr><w:cantSplit/></w:trPr><w:tc>'
+                f'<w:tcPr><w:tcW w:w="{cuerpo - 567}" w:type="dxa"/><w:tcBorders><w:top w:val="single" w:sz="4" '
+                f'w:space="0" w:color="{self.PETROLEO}"/><w:left w:val="single" w:sz="4" w:space="0" '
+                f'w:color="{self.PETROLEO}"/><w:bottom w:val="single" w:sz="4" w:space="0" w:color="{self.PETROLEO}"/>'
+                f'<w:right w:val="single" w:sz="4" w:space="0" w:color="{self.PETROLEO}"/></w:tcBorders>'
+                f'<w:shd w:val="clear" w:color="auto" w:fill="F4F8F8"/><w:tcMar><w:top w:w="160" w:type="dxa"/>'
+                f'<w:left w:w="220" w:type="dxa"/><w:bottom w:w="140" w:type="dxa"/><w:right w:w="220" w:type="dxa"/>'
+                f'</w:tcMar></w:tcPr>'
+                + pp(r('CÓMO SE LEE', tam=9, color=self.PETROLEO, b=True, esp=40), despues=100) + leyenda
+                + '</w:tc></w:tr></w:tbl>')
+        raya = (f'<w:pBdr><w:bottom w:val="single" w:sz="12" w:space="1" w:color="{self.PETROLEO}"/></w:pBdr>'
+                f'<w:ind w:right="3400"/>')
+        contenido = (pp(r('MATERIAL DE ESTUDIO · SUPUESTOS PRÁCTICOS', tam=9, color=PB.NARANJA_BORDE, b=True,
+                          esp=40), antes=600)
+                     + pp(r('Plantillas', fuente='Cambria', tam=44, color=self.PETROLEO, b=True), antes=260, linea=240)
+                     + pp(r('por importancia', fuente='Cambria', tam=44, color=self.PETROLEO, b=True), linea=240)
+                     + pp(r(' ', tam=4), antes=0, linea=240, despues=0, extra=raya)
+                     + pp(r('La plantilla de cada apartado de la libreta mágica y, para cada hueco, las opciones ordenadas '
+                            'de lo esencial a lo complementario, con la norma copiada tal cual', fuente='Cambria',
+                            tam=14, color='4A5A60', i=True), antes=300, despues=0, extra='<w:ind w:right="900"/>')
+                     + pp(r('CONTENIDO', tam=9, color=self.PETROLEO, b=True, esp=40), antes=800, despues=140)
+                     + indice
+                     + pp('', antes=500) + caja
+                     + pp(r('Educación Primaria · Andalucía · Convocatoria de 2027', tam=10.5, color=self.PETROLEO,
+                            b=True), antes=700)
+                     + pp(r('Versión 2.2, cuarta edición de las plantillas · 20 de noviembre de 2026 · Acompaña a la '
+                            'libreta mágica 2.2. Material de estudio personal.', tam=8.5, color='5B6770', i=True),
+                          antes=60))
+        texto_banda = pp(r('SUPUESTOS PRÁCTICOS  ·  EDUCACIÓN PRIMARIA  ·  ANDALUCÍA 2027', tam=9, color=self.CREMA_BANDA,
+                           b=True, esp=60), jc='center')
+        tabla = (f'<w:tbl {PB.NS}><w:tblPr><w:tblW w:w="{ancho_total}" w:type="dxa"/><w:tblLayout w:type="fixed"/>'
+                 f'<w:tblCellMar><w:left w:w="0" w:type="dxa"/><w:right w:w="0" w:type="dxa"/></w:tblCellMar>'
+                 f'</w:tblPr><w:tblGrid><w:gridCol w:w="{banda}"/><w:gridCol w:w="{cuerpo}"/></w:tblGrid>'
+                 f'<w:tr><w:trPr><w:cantSplit/><w:trHeight w:val="14300" w:hRule="exact"/></w:trPr>'
+                 f'<w:tc><w:tcPr><w:tcW w:w="{banda}" w:type="dxa"/><w:shd w:val="clear" w:color="auto" '
+                 f'w:fill="{self.PETROLEO}"/><w:textDirection w:val="btLr"/><w:vAlign w:val="center"/></w:tcPr>'
+                 f'{texto_banda}</w:tc>'
+                 f'<w:tc><w:tcPr><w:tcW w:w="{cuerpo}" w:type="dxa"/><w:tcMar><w:top w:w="0" w:type="dxa"/>'
+                 f'<w:left w:w="567" w:type="dxa"/><w:bottom w:w="0" w:type="dxa"/><w:right w:w="0" w:type="dxa"/>'
+                 f'</w:tcMar></w:tcPr>{contenido}</w:tc></w:tr></w:tbl>')
+        self._anade(parse_xml(tabla))
+        self.d.sections[0].different_first_page_header_footer = True     # sin cabecera ni pie en la portada
 
     def titulo(self, texto, salto=False):
-        el = self.p(PB._run(texto, negrita=True, color=PB.VERDE_AZ, tam=14), antes=160, despues=80)
+        el = self.p(PB._run(texto, negrita=True, color=PB.VERDE_AZ, tam=14), antes=0 if salto else 160, despues=80)
+        if salto:
+            _keep(el, 'w:pageBreakBefore')
         return _keep(el, 'w:keepNext')
 
     def cuadro(self, contenido_xml, etiqueta_caja=None):
@@ -222,9 +294,9 @@ class Plantillas(PB.Constructor):
         if datos.get('nota'):
             self.p(rico(datos['nota'], tam=9), despues=60, ind='<w:ind w:left="440"/>')
 
-    def apartado(self, clave):
+    def apartado(self, clave, salto=False):
         datos = O.PLANTILLAS[clave]
-        self.titulo(datos['titulo'])
+        self.titulo(datos['titulo'], salto)
         for i, fila in enumerate(datos['filas']):
             if fila.get('etiqueta'):
                 _keep(self.p(PB._run(fila['etiqueta'], negrita=True, versalitas=True, color=PB.AZUL, tam=8.5),
@@ -300,12 +372,12 @@ class Plantillas(PB.Constructor):
         self.p('', despues=60)
 
 
-def main():
+def construye(paginas=None):
     PB.UTIL = ANCHO                       # la tabla de orientaciones, al ancho de la página vertical
     c = Plantillas()
-    c.portada()
+    c.portada(paginas)
     for clave in ('7.1', '7.2', '7.3', '7.5', '7.6', '7.7', '7.8', '7.9'):
-        c.apartado(clave)
+        c.apartado(clave, salto=clave == '7.1')
         if clave == '7.7':
             c.tabla_elementos()
         if clave == '7.8':
@@ -316,7 +388,30 @@ def main():
         zoom.set(qn('w:percent'), '100')
     os.makedirs(os.path.dirname(SALIDA), exist_ok=True)
     c.d.save(SALIDA)
-    print(SALIDA)
+
+
+def paginas_del_indice():
+    """Página de cada apartado, con LibreOffice (la portada es la página 1)."""
+    import subprocess
+    import tempfile
+    tmp = tempfile.mkdtemp()
+    subprocess.run(['soffice', '--headless', '--convert-to', 'pdf', '--outdir', tmp, SALIDA], capture_output=True)
+    pdf = os.path.join(tmp, os.path.basename(SALIDA).replace('.docx', '.pdf'))
+    pags = subprocess.run(['pdftotext', '-layout', pdf, '-'], capture_output=True, text=True).stdout.split('\f')
+    res = {}
+    for texto, busca in Plantillas.INDICE:
+        for k, pagina in enumerate(pags[1:], start=2):
+            if any(l.strip().startswith(busca) for l in pagina.split('\n')):
+                res[texto] = k
+                break
+    return res
+
+
+def main():
+    construye()
+    paginas = paginas_del_indice()
+    construye(paginas)
+    print(SALIDA, paginas)
 
 
 if __name__ == '__main__':
